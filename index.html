@@ -539,7 +539,11 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 /* ===== BEFORE / AFTER ===== */
 .ba{position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);--pos:50%;user-select:none;touch-action:pan-y;background:#E9EBEE}
 .ba-side{position:absolute;inset:0}
-.ba-after{clip-path:inset(0 0 0 var(--pos));transition:clip-path .05s linear}
+.ba-before{z-index:1;isolation:isolate}
+.ba-after{z-index:2;isolation:isolate;clip-path:inset(0 0 0 var(--pos));transition:clip-path .05s linear}
+.ms.flip .ms-nav{flex-direction:row-reverse}.ms.flip .ms-menu{margin-left:0;margin-right:auto}
+.ms.flip .ms-copy{left:auto;right:5cqw;width:44cqw;align-items:flex-end;text-align:right}.ms.flip .ms-p{max-width:40cqw}
+.ms.flip .ms-art{right:auto;left:6cqw}
 .ba-after .ms{inset:0}
 .ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:#fff;z-index:4;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
 .ba-knob{position:absolute;top:50%;left:var(--pos);width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--sun);color:#1A0E04;display:grid;place-items:center;z-index:5;box-shadow:0 10px 30px -8px rgba(0,0,0,.5);font:700 18px/1 var(--f-display);pointer-events:none}
@@ -579,7 +583,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 [data-tilt]{transform-style:preserve-3d;transition:transform .5s var(--ease)}
 .big-word{background:linear-gradient(90deg,var(--sun),#FFC98A) no-repeat 0 0/var(--fill,0%) 100%,linear-gradient(rgba(237,240,235,.08),rgba(237,240,235,.08));-webkit-background-clip:text;background-clip:text;-webkit-text-stroke:0;letter-spacing:-.045em}
 .big-word i{-webkit-text-stroke:0;margin-left:.06em}
-@media (max-width:640px){.scene .phone{right:1%;width:24%}.hsteps span:not(.on){display:none}.ba .note-pin{display:none}.ba-tag{top:10px;font-size:10px}}
+@media (max-width:640px){.scene .phone{right:1%;width:24%}.hsteps span:not(.on){display:none}.ba .note-pin{display:none}.ba-tag{top:auto;bottom:10px;font-size:10px}}
 .foot-cta{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;padding-block:clamp(40px,7vw,90px) 10px;border-bottom:1px solid var(--night-line)}
 .foot-cta h2{font-size:clamp(2.2rem,1.2rem + 4vw,4.6rem);color:var(--on-night);font-variation-settings:"wdth" 78;max-width:16ch}
 .foot-cta h2 em{font-family:var(--f-body);font-style:italic;font-weight:400;color:var(--sun)}
@@ -745,16 +749,16 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
               <div class="soc-card"><small data-i="soc.3">2 days ago</small><span data-i="soc.4">New this week!!! DM for booking</span><div class="soc-lines"><span style="width:90%"></span><span style="width:70%"></span></div>
                 <span class="soc-cmt" data-i="soc.5">Are you open today?</span><span class="soc-cmt" data-i="soc.6">How much for 2 people??</span><span class="soc-cmt" data-i="soc.7">Hello? 3 days no answer</span></div>
             </div>
-            <span class="note-pin" style="left:6%;top:88%" data-i="bn.1">Prices hidden in a photo</span>
-            <span class="note-pin" style="left:42%;top:40%" data-i="bn.2">Hours from last year</span>
-            <span class="note-pin" style="left:66%;top:89%" data-i="bn.3">Booking? Send a DM and wait</span>
+            <span class="note-pin" style="left:3%;top:79%" data-i="bn.1">Prices hidden in a photo</span>
+            <span class="note-pin" style="left:30%;top:31%" data-i="bn.2">Hours from last year</span>
+            <span class="note-pin" style="left:24%;top:91%" data-i="bn.3">Booking? Send a DM and wait</span>
           </div>
         </div>
         <div class="ba-side ba-after" aria-hidden="true">
-          <div class="ms" id="msBA" data-ph="3"></div>
-          <span class="note-pin" style="right:8%;top:6%;left:auto" data-i="an.1">Booking in two taps</span>
-          <span class="note-pin" style="left:54%;top:80%" data-i="an.2">Prices on the page</span>
-          <span class="note-pin" style="left:6%;top:78%" data-i="an.3">Found on Google</span>
+          <div class="ms flip" id="msBA" data-ph="3"></div>
+          <span class="note-pin" style="right:4%;top:62%;left:auto" data-i="an.1">Booking in two taps</span>
+          <span class="note-pin" style="left:56%;top:84%" data-i="an.2">Prices on the page</span>
+          <span class="note-pin" style="right:4%;top:14%;left:auto" data-i="an.3">Found on Google</span>
         </div>
         <div class="ba-line" aria-hidden="true"></div>
         <div class="ba-knob" aria-hidden="true">⇆</div>

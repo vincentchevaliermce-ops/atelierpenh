@@ -543,7 +543,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
       </div>
     </div>
   </section>
-  <div class="vbox" id="vbox" role="dialog" aria-modal="true" aria-label="Website concept preview"><button type="button" id="vboxX" aria-label="Close">×</button><figure><video id="vboxV" muted loop playsinline preload="none"></video><figcaption><b id="vboxT"></b><small data-i="vb.note">Concept made before any payment. Shop name hidden.</small></figcaption></figure></div>
+  <div class="vbox" id="vbox" role="dialog" aria-modal="true" aria-label="Website concept preview"><button type="button" id="vboxX" aria-label="Close">×</button><figure><video id="vboxV" muted autoplay loop playsinline preload="none"></video><figcaption><b id="vboxT"></b><small data-i="vb.note">Concept made before any payment. Shop name hidden.</small></figcaption></figure></div>
 
   <section id="features">
     <div class="wrap">
@@ -974,7 +974,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 
 <script>
 (()=>{const box=document.getElementById('vbox'),v=document.getElementById('vboxV'),t=document.getElementById('vboxT');
-const open=f=>{v.src=f.dataset.v;v.poster=f.querySelector('img').src;t.textContent=f.querySelector('figcaption b').textContent;box.classList.add('on');document.documentElement.style.overflow='hidden';v.play().catch(()=>{});};
+const open=f=>{v.src=f.dataset.v;v.poster=f.querySelector('img').src;t.textContent=f.querySelector('figcaption b').textContent;box.classList.add("on");document.documentElement.style.overflow="hidden";v.load();v.addEventListener("canplay",()=>v.play().catch(()=>{}),{once:true});v.play().catch(()=>{});};
 const close=()=>{box.classList.remove('on');v.pause();v.removeAttribute('src');v.load();document.documentElement.style.overflow='';};
 document.querySelectorAll('.cc[data-v]').forEach(f=>{f.addEventListener('click',()=>open(f));f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(f);}});});
 document.getElementById('vboxX').addEventListener('click',close);box.addEventListener('click',e=>{if(e.target===box)close();});

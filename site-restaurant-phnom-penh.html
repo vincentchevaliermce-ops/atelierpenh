@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Création de site pour restaurant à Phnom Penh · Atelier Penh</title>
+<meta name="description" content="Sites de restaurants à Phnom Penh : une carte lisible sur téléphone, des demandes de table sur WhatsApp ou Telegram, Google Maps et horaires. À partir de 290 $.">
+<link rel="canonical" href="https://atelierpenh.com/site-restaurant-phnom-penh">
+<link rel="alternate" hreflang="en" href="https://atelierpenh.com/restaurant-website-phnom-penh">
+<link rel="alternate" hreflang="fr" href="https://atelierpenh.com/site-restaurant-phnom-penh">
+<link rel="alternate" hreflang="x-default" href="https://atelierpenh.com/restaurant-website-phnom-penh">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132A28'/%3E%3Ctext x='32' y='44' font-family='Arial Narrow,Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%23EE8A33'%3EAP%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#132A28">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Atelier Penh">
+<meta property="og:title" content="Création de site pour restaurant à Phnom Penh · Atelier Penh">
+<meta property="og:description" content="Sites de restaurants à Phnom Penh : une carte lisible sur téléphone, des demandes de table sur WhatsApp ou Telegram, Google Maps et horaires. À partir de 290 $.">
+<meta property="og:url" content="https://atelierpenh.com/site-restaurant-phnom-penh">
+<meta property="og:image" content="https://atelierpenh.com/og-fr.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--paper:#EDF0EB;--card:#F8F9F6;--ink:#132A28;--muted:#56706A;--line:#D3DCD7;--saffron:#C8601C;--sun:#EE8A33;--night:#132A28;--on-night:#E9EFEA;--on-night-mute:#9DB4AE;
+--f-display:"Bricolage Grotesque",system-ui,sans-serif;--f-body:"Newsreader",Georgia,serif;--f-mono:"IBM Plex Mono",ui-monospace,monospace;--gutter:clamp(16px,4vw,48px);--max:1120px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0F1A19;--card:#152422;--ink:#E4EBE7;--muted:#9BB0AA;--line:#27403C;--saffron:#EE8A33;--night:#081312;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0F1A19;--card:#152422;--ink:#E4EBE7;--muted:#9BB0AA;--line:#27403C;--saffron:#EE8A33;--night:#081312;color-scheme:dark}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:clamp(1.06rem,1rem + .25vw,1.18rem);line-height:1.6}
+a{color:inherit}img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.2rem,1.4rem + 3.6vw,4rem);font-variation-settings:"wdth" 80}
+h2{font-size:clamp(1.6rem,1.2rem + 1.6vw,2.4rem);font-variation-settings:"wdth" 84;margin-top:1.6em}
+h3{font-size:1.2rem;margin-top:1.2em}
+h1 em,h2 em{font-family:var(--f-body);font-style:italic;font-weight:400;color:var(--sun)}
+p{margin:.8em 0}
+.label{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header.top{background:var(--night);color:var(--on-night);position:sticky;top:0;z-index:10}
+header.top .wrap{display:flex;align-items:center;gap:18px;min-height:62px}
+.logo{font-family:var(--f-display);font-weight:800;text-decoration:none;font-size:1.15rem;letter-spacing:-.02em;font-variation-settings:"wdth" 80}
+.logo i{font-style:normal;color:var(--sun)}
+header nav{display:flex;gap:16px;margin-left:auto;font-family:var(--f-display);font-size:.92rem}
+header nav a{text-decoration:none;opacity:.85}header nav a:hover{opacity:1}
+.lang-sw{font-family:var(--f-mono);font-size:.78rem;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:.3em .7em;text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-display);font-weight:600;text-decoration:none;border-radius:999px;padding:.75em 1.3em;border:1px solid currentColor}
+.btn.solid{background:var(--sun);border-color:var(--sun);color:#1A0E04}
+@media (max-width:760px){header nav .opt{display:none}}
+.hero{background:var(--night);color:var(--on-night);padding-block:clamp(40px,7vw,84px) clamp(44px,7vw,80px)}
+.hero .label{color:var(--on-night-mute)}
+.hero h1{margin-top:12px}
+.hero .lede{font-size:clamp(1.15rem,1.05rem + .5vw,1.4rem);color:var(--on-night-mute);max-width:40ch}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.crumbs{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.04em;color:var(--on-night-mute);display:flex;flex-wrap:wrap;gap:6px}
+.crumbs a{text-decoration:none}
+main section{padding-block:clamp(36px,6vw,72px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px;margin-top:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.card h3{margin-top:0}
+.card p{margin:.5em 0 0;color:var(--muted);font-size:.98rem}
+.proof{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(18px,4vw,44px);align-items:center}
+@media (max-width:820px){.proof{grid-template-columns:1fr}}
+.frame{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px -36px rgba(0,0,0,.5);background:#F7F3EC}
+.frame .bar{height:26px;background:#E8E1D6;display:flex;gap:6px;align-items:center;padding:0 10px}.frame .bar i{width:9px;height:9px;border-radius:50%;background:#C9BFB0}
+.frame img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.note{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);margin-top:8px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;margin-top:22px}
+.plan{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--card)}
+.plan.pick{background:var(--night);color:var(--on-night);border-color:var(--sun)}
+.plan b{font-family:var(--f-display);font-size:2rem;display:block;letter-spacing:-.03em}
+.plan small{font-family:var(--f-mono);font-size:.74rem;opacity:.75}
+.plan ul{padding-left:1.1em;margin:.8em 0 0;font-size:.95rem}
+.faq details{border-top:1px solid var(--line);padding:14px 0}
+.faq summary{font-family:var(--f-display);font-weight:600;cursor:pointer;font-size:1.05rem}
+.faq details p{color:var(--muted)}
+.band{background:var(--night);color:var(--on-night);border-radius:22px;padding:clamp(24px,5vw,48px);margin-block:clamp(30px,5vw,60px)}
+.band p{color:var(--on-night-mute);max-width:52ch}
+article.guide{max-width:72ch}
+article.guide table{border-collapse:collapse;width:100%;font-size:.95rem;margin:1em 0;display:block;overflow-x:auto}
+article.guide th,article.guide td{border-bottom:1px solid var(--line);padding:.55em .6em;text-align:left;vertical-align:top}
+article.guide th{font-family:var(--f-display);font-size:.9rem}
+article.guide li{margin:.35em 0}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 20px;font-size:.96rem}
+.sources{font-size:.9rem;color:var(--muted)}
+.sources a{word-break:break-word}
+footer{background:var(--night);color:var(--on-night-mute);padding-block:36px 28px;font-size:.92rem}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:22px}
+footer h4{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px;color:var(--on-night)}
+footer ul{list-style:none;padding:0;margin:0}footer li{margin:.3em 0}
+footer a{text-decoration:none}footer a:hover{color:var(--on-night)}
+footer .legal{margin-top:24px;font-family:var(--f-mono);font-size:.72rem}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://atelierpenh.com/fr"}, {"@type": "ListItem", "position": 2, "name": "Sites de restaurants", "item": "https://atelierpenh.com/site-restaurant-phnom-penh"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Création de site internet pour restaurant à Phnom Penh", "serviceType": "Website design", "provider": {"@type": "ProfessionalService", "name": "Atelier Penh", "url": "https://atelierpenh.com/", "telephone": "+33687723145", "email": "vincent@atelierpenh.com"}, "areaServed": {"@type": "City", "name": "Phnom Penh"}, "inLanguage": "fr", "url": "https://atelierpenh.com/site-restaurant-phnom-penh", "offers": [{"@type": "Offer", "name": "Essential", "price": "290", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Signature", "price": "490", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Premium", "price": "890", "priceCurrency": "USD"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Puis-je changer la carte moi-même ?", "acceptedAnswer": {"@type": "Answer", "text": "La plupart des patrons préfèrent m'envoyer une photo ou un message, et je fais la mise à jour. Les modifications sont comprises dans l'abonnement : une par trimestre en Essentiel, une par mois en Signature, quatre par mois en Premium."}}, {"@type": "Question", "name": "Les clients réservent-ils un horaire précis ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Ils choisissent le jour, l'heure et le nombre de couverts, et la demande arrive sur votre WhatsApp ou Telegram. Vous confirmez en une réponse."}}, {"@type": "Question", "name": "Prenez-vous une commission sur les réservations ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Vous payez la mise en place et l'abonnement mensuel. Les réservations qui passent par votre site ne vous coûtent rien de plus."}}, {"@type": "Question", "name": "J'utilise déjà un outil de réservation. Dois-je l'abandonner ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Le site peut renvoyer vers lui. Certains restaurants le gardent pour les groupes et passent par WhatsApp pour le reste."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="logo" href="/fr">Atelier <i>Penh</i></a><nav><a class="opt" href="/site-restaurant-phnom-penh">Restaurants</a><a class="opt" href="/site-spa-salon-phnom-penh">Spas & salons</a><a class="opt" href="/fr#pricing">Tarifs</a><a class="lang-sw" href="/restaurant-website-phnom-penh" hreflang="en" lang="en">EN</a><a class="btn solid" style="padding:.45em 1em;font-size:.88rem" href="https://wa.me/33687723145?text=Bonjour%20Vincent%2C%20j%27ai%20un%20restaurant%20%C3%A0%20Phnom%20Penh%20et%20j%27aimerais%20une%20maquette%20offerte%20de%20mon%20site.">WhatsApp</a></nav></div></header>
+<section class="hero"><div class="wrap">
+<p class="crumbs"><a href="/fr">Accueil</a> <span>/</span> <span>Sites de restaurants</span></p>
+<p class="label" style="margin-top:18px">Restaurants, cafés et bars · Phnom Penh</p>
+<h1>Création de site pour restaurant à Phnom Penh, <em>avec réservations sur WhatsApp.</em></h1>
+<p class="lede">Votre carte lisible sur téléphone, vos demandes de table directement sur WhatsApp ou Telegram, et votre adresse, vos horaires et vos photos là où Google les trouve.</p>
+<div class="cta"><a class="btn solid" href="https://wa.me/33687723145?text=Bonjour%20Vincent%2C%20j%27ai%20un%20restaurant%20%C3%A0%20Phnom%20Penh%20et%20j%27aimerais%20une%20maquette%20offerte%20de%20mon%20site.">Recevoir ma maquette offerte</a><a class="btn" href="/fr">Voir le studio</a></div>
+</div></section>
+<main>
+<section><div class="wrap"><h2 style="margin-top:0">Ce que fait le site de votre restaurant</h2><div class="grid"><div class="card"><h3>Une carte qu'on peut lire</h3><p>Une vraie page web, pas un PDF flou ni une photo de la carte. Les plats, les prix et les allergènes restent nets sur tous les téléphones, et je la mets à jour quand la carte change.</p></div><div class="card"><h3>Les demandes de table sur votre téléphone</h3><p>Le client choisit le jour, l'heure et le nombre de couverts. La demande s'ouvre dans WhatsApp ou Telegram avec tout déjà écrit. Pas d'appli de réservation, pas de commission.</p></div><div class="card"><h3>Trouvé sur Google Maps</h3><p>Adresse, horaires et lien direct entre votre fiche Google et votre site. C'est là que cherchent d'abord les touristes et les expatriés.</p></div><div class="card"><h3>Dans la langue de vos clients</h3><p>Anglais par défaut, avec le français ou le khmer si vous voulez. Chaque langue a sa propre page, pour que Google montre la bonne.</p></div><div class="card"><h3>Vos photos, votre style</h3><p>Je pars de votre logo, de vos couleurs et de votre salle. Le site ressemble à votre restaurant, pas à un modèle.</p></div><div class="card"><h3>Vous gardez vos outils</h3><p>Déjà sur une plateforme de réservation ou une appli de livraison ? Le site renvoie vers elles. Vous gardez ce qui marche.</p></div></div></div></section><section style="padding-top:0"><div class="wrap"><div class="proof"><div><h2 style="margin-top:0">Des maquettes de restaurants déjà réalisées</h2><p>Avant tout paiement, je dessine une maquette du site. À Phnom Penh, je l'ai fait pour un comptoir omakase, un bar steak, wok et vins, un bistrot en bord de fleuve et un café céramique.</p><p>Ces établissements n'ont pas tous signé, donc les captures restent floutées par respect. En rendez-vous, je vous montre les maquettes en vrai sur tablette.</p></div><figure style="margin:0"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="img/preview-02.jpg" alt="Maquette floutée d'un site de restaurant à Phnom Penh" loading="lazy" decoding="async" width="1440" height="900"></div><figcaption class="note">Maquette pour un comptoir omakase de BKK1, floutée volontairement.</figcaption></figure></div></div></section><section><div class="wrap"><h2 style="margin-top:0">Des prix clairs, en dollars</h2><div class="plans"><div class="plan"><span class="label" style="color:inherit;opacity:.8">Essentiel</span><b>290 $</b><small>mise en place · puis 19 $/mois</small><ul><li>1 longue page</li><li>Anglais</li><li>Bouton WhatsApp ou Telegram</li><li>En ligne en 3 jours</li><li>1 modification par trimestre</li></ul></div><div class="plan pick"><span class="label" style="color:inherit;opacity:.8">Signature</span><b>490 $</b><small>mise en place · puis 29 $/mois</small><ul><li>Jusqu'à 5 pages</li><li>Anglais + 1 langue</li><li>Formulaire avec alerte immédiate</li><li>En ligne en 7 jours</li><li>1 modification par mois</li></ul></div><div class="plan"><span class="label" style="color:inherit;opacity:.8">Premium</span><b>890 $</b><small>mise en place · puis 49 $/mois</small><ul><li>Jusqu'à 10 pages</li><li>Anglais + 2 langues</li><li>Confirmation, rappel, acompte en ligne (ABA PayWay)</li><li>En ligne en 14 jours</li><li>4 modifications par mois</li></ul></div></div><p class="note" style="font-size:.85rem">Domaine, hébergement et HTTPS inclus dans chaque formule. Pas d'avance possible ? La Signature existe aussi à 79 $/mois pendant 12 mois, puis 29 $/mois. Le détail est sur la <a href="/fr#pricing">section tarifs</a>.</p></div></section>
+<section class="faq"><div class="wrap"><h2>Les questions qu'on me pose</h2><details><summary>Puis-je changer la carte moi-même ?</summary><p>La plupart des patrons préfèrent m'envoyer une photo ou un message, et je fais la mise à jour. Les modifications sont comprises dans l'abonnement : une par trimestre en Essentiel, une par mois en Signature, quatre par mois en Premium.</p></details><details><summary>Les clients réservent-ils un horaire précis ?</summary><p>Oui. Ils choisissent le jour, l'heure et le nombre de couverts, et la demande arrive sur votre WhatsApp ou Telegram. Vous confirmez en une réponse.</p></details><details><summary>Prenez-vous une commission sur les réservations ?</summary><p>Non. Vous payez la mise en place et l'abonnement mensuel. Les réservations qui passent par votre site ne vous coûtent rien de plus.</p></details><details><summary>J&#x27;utilise déjà un outil de réservation. Dois-je l&#x27;abandonner ?</summary><p>Non. Le site peut renvoyer vers lui. Certains restaurants le gardent pour les groupes et passent par WhatsApp pour le reste.</p></details></div></section>
+<div class="wrap"><div class="band"><h2 style="margin-top:0">Envie de voir votre site avant de décider ?</h2><p>Envoyez-moi le lien de votre page Facebook, Instagram ou Google Maps. Je prépare une maquette offerte à partir de votre marque et je vous la montre, chez vous ou sur WhatsApp. Vous ne payez que si vous dites oui.</p><div class="cta" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:18px"><a class="btn solid" href="https://wa.me/33687723145?text=Bonjour%20Vincent%2C%20j%27ai%20un%20restaurant%20%C3%A0%20Phnom%20Penh%20et%20j%27aimerais%20une%20maquette%20offerte%20de%20mon%20site.">Recevoir ma maquette offerte (WhatsApp)</a><a class="btn" href="https://t.me/+33687723145">Telegram</a></div></div></div>
+</main>
+<footer><div class="wrap"><div class="cols"><div><h4>Par métier</h4><ul><li><a href="/site-restaurant-phnom-penh">Sites de restaurants</a></li><li><a href="/site-spa-salon-phnom-penh">Sites de spas et salons</a></li><li><a href="/site-boutique-phnom-penh">Sites de boutiques</a></li><li><a href="/site-hotel-phnom-penh">Sites d&#x27;hôtels et guesthouses</a></li></ul></div><div><h4>Guides</h4><ul><li><a href="/prix-site-internet-phnom-penh">Prix d&#x27;un site à Phnom Penh</a></li><li><a href="/site-internet-ou-page-facebook">Site internet ou page Facebook ?</a></li><li><a href="/reservations-whatsapp-site">Réservations WhatsApp depuis le site</a></li></ul></div><div><h4>Studio</h4><ul><li><a href="/fr">Accueil</a></li><li><a href="/fr#pricing">Tarifs</a></li><li><a href="/fr#faq">FAQ</a></li><li><a href="/">English version</a></li></ul></div><div><h4>Contact</h4><ul><li><a href="https://wa.me/33687723145">WhatsApp +33 6 87 72 31 45</a></li><li><a href="https://t.me/+33687723145">Telegram</a></li><li><a href="mailto:vincent@atelierpenh.com">vincent@atelierpenh.com</a></li><li>Phnom Penh, Cambodia</li></ul></div></div><p class="legal">© 2026 Atelier Penh · Studio web français à Phnom Penh · <a href="mailto:vincent@atelierpenh.com">vincent@atelierpenh.com</a></p></div></footer>
+</body>
+</html>

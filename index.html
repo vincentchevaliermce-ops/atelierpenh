@@ -386,13 +386,213 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 .rv.in{transform:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.rv{transform:none}}
 
-/*AP-PREVIEWS*/.cc{cursor:pointer}.cc img{height:auto}.cc .lock{z-index:1}
-.cc .play{position:absolute;right:12px;top:12px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--glass);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--ink);z-index:1;transition:transform .4s var(--ease)}
-.cc .play svg{width:18px;height:18px;margin-left:2px}.cc:hover .play,.cc:focus-visible .play{transform:scale(1.12)}.cc:focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
-.vbox{position:fixed;inset:0;z-index:200;display:none;place-items:center;background:rgb(10 8 6 / .86);padding:16px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.vbox.on{display:grid}
-.vbox figure{margin:0;width:min(1100px,100%);display:flex;flex-direction:column;gap:12px}.vbox video{width:100%;aspect-ratio:1.6;border-radius:12px;background:#000;box-shadow:0 30px 80px rgb(0 0 0 / .5)}
-.vbox figcaption{display:flex;justify-content:space-between;gap:12px;color:#F3EDE4;font-size:.95rem}.vbox figcaption small{opacity:.7}
-.vbox button{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgb(255 255 255 / .3);background:none;color:#fff;font-size:1.5rem;cursor:pointer}
+/* ===== MINI SITE (shared by hero, story, before/after) ===== */
+.ms{--b:#F6EEE2;--f:#3B2F22;--a:#C8A13A;--m:#8C7B66;--df:"Fraunces",Georgia,serif;--bf:"Newsreader",Georgia,serif;--shape:200px 200px 14px 14px;
+  container-type:inline-size;position:absolute;inset:0;overflow:hidden;background:#F3EEE6;color:var(--f);transition:background .7s var(--ease),color .7s var(--ease)}
+.ms[data-ph="1"],.ms[data-ph="2"],.ms[data-ph="3"]{background:var(--b)}
+.ms-nav{position:absolute;left:5cqw;right:5cqw;top:5cqw;display:flex;justify-content:space-between;align-items:center;gap:3cqw;font-family:var(--bf);font-size:1.45cqw;letter-spacing:.12em;text-transform:uppercase}
+.ms-logo{font-family:var(--df);font-size:2.6cqw;letter-spacing:.06em;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40cqw}
+.ms[data-style="couture"] .ms-logo,.ms[data-style="omakase"] .ms-logo,.ms[data-style="pilates"] .ms-logo{text-transform:uppercase;letter-spacing:.16em}
+.ms-menu{margin-left:auto;opacity:.8;white-space:nowrap}
+.ms-pill{background:var(--a);color:var(--b);padding:.6em 1.1em;border-radius:999px;white-space:nowrap}
+.ms-copy{position:absolute;left:5cqw;top:19cqw;width:50cqw;display:flex;flex-direction:column;gap:1.6cqw}
+.ms-eye{font-family:var(--bf);font-size:1.3cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--a)}
+.ms-h{font-family:var(--df);font-size:5.4cqw;line-height:1.02;font-weight:500;overflow-wrap:anywhere}
+.ms-h em{color:var(--a);font-style:italic;display:block}
+.ms.long .ms-h{font-size:4.3cqw}
+.ms-p{font-family:var(--bf);font-size:1.55cqw;line-height:1.45;color:var(--m);max-width:40cqw}
+.ms-btns{display:flex;gap:1.2cqw;margin-top:.6cqw}
+.ms-btns span{font-family:var(--bf);font-size:1.25cqw;letter-spacing:.12em;text-transform:uppercase;padding:1.1em 1.6em;border-radius:999px;background:var(--a);color:var(--b);white-space:nowrap}
+.ms-btns span+span{background:transparent;color:var(--f);border:1px solid color-mix(in srgb,var(--f) 40%,transparent)}
+.ms-art{position:absolute;right:6cqw;top:15cqw;width:33cqw;height:44cqw;border-radius:var(--shape);overflow:hidden;background:var(--a);transition:border-radius .7s var(--ease),background .7s}
+.ms-art img{width:100%;height:100%;object-fit:cover;filter:blur(9px) saturate(1.1);transform:scale(1.15);opacity:0;transition:opacity .8s var(--ease),transform 1.2s var(--ease)}
+.ms[data-style="spa"] .ms-art img{filter:none;transform:scale(1.02)}
+.ms[data-ph="3"] .ms-art img{opacity:1;transform:scale(1.04)}
+.ms[data-style="spa"][data-ph="3"] .ms-art img{transform:scale(1)}
+.ms-art::after{content:attr(data-tag);position:absolute;left:1.2cqw;bottom:1.2cqw;font:500 1cqw/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.45);color:#fff;padding:.6em .9em;border-radius:999px;opacity:0;transition:opacity .4s}
+.ms[data-ph="3"]:not([data-style="spa"]) .ms-art::after{opacity:1}
+.ms-nav,.ms-copy{transition:opacity .5s var(--ease),transform .7s var(--ease)}
+.ms[data-ph="0"] .ms-nav,.ms[data-ph="0"] .ms-copy,.ms[data-ph="1"] .ms-nav,.ms[data-ph="1"] .ms-copy{opacity:0;transform:translateY(1.5cqw)}
+.ms[data-ph="0"] .ms-art,.ms[data-ph="1"] .ms-art{opacity:0}
+.ms-art{transition:opacity .5s,border-radius .7s var(--ease),background .7s}
+/* wireframe layer */
+.ms-wire{position:absolute;inset:0;pointer-events:none;transition:opacity .5s var(--ease)}
+.ms-wire i{position:absolute;display:block;border-radius:.8cqw;background:#DDD5C9;transform-origin:0 50%;transition:background .6s var(--ease),transform .7s var(--ease),border-radius .6s}
+.ms-wire .w1{left:5cqw;top:5.4cqw;width:16cqw;height:2.6cqw}
+.ms-wire .w2{right:5cqw;top:5.4cqw;width:26cqw;height:2.6cqw}
+.ms-wire .w3{left:5cqw;top:21cqw;width:44cqw;height:6cqw}
+.ms-wire .w4{left:5cqw;top:29cqw;width:36cqw;height:6cqw}
+.ms-wire .w5{left:5cqw;top:39cqw;width:38cqw;height:1.8cqw}
+.ms-wire .w6{left:5cqw;top:42.5cqw;width:30cqw;height:1.8cqw}
+.ms-wire .w7{left:5cqw;top:48cqw;width:14cqw;height:4.4cqw;border-radius:999px}
+.ms-wire .w8{right:6cqw;top:15cqw;width:33cqw;height:44cqw;border-radius:30cqw 30cqw 2cqw 2cqw;transform-origin:50% 100%}
+.ms[data-ph="1"] .ms-wire i{background:color-mix(in srgb,var(--f) 22%,var(--b))}
+.ms[data-ph="1"] .ms-wire .w3,.ms[data-ph="1"] .ms-wire .w4{background:var(--f)}
+.ms[data-ph="1"] .ms-wire .w7,.ms[data-ph="1"] .ms-wire .w8,.ms[data-ph="1"] .ms-wire .w2{background:var(--a)}
+.ms[data-ph="2"] .ms-wire,.ms[data-ph="3"] .ms-wire{opacity:0}
+.ms[data-ph="2"] .ms-art{opacity:1}
+.ms.wbuild .ms-wire i{animation:wgrow .7s var(--ease) both}
+.ms.wbuild .ms-wire .w8{animation-name:wgrowy}
+.ms.wbuild .ms-wire i:nth-child(2){animation-delay:.05s}.ms.wbuild .ms-wire i:nth-child(3){animation-delay:.1s}.ms.wbuild .ms-wire i:nth-child(4){animation-delay:.15s}
+.ms.wbuild .ms-wire i:nth-child(5){animation-delay:.2s}.ms.wbuild .ms-wire i:nth-child(6){animation-delay:.25s}.ms.wbuild .ms-wire i:nth-child(7){animation-delay:.3s}.ms.wbuild .ms-wire i:nth-child(8){animation-delay:.12s}
+@keyframes wgrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes wgrowy{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+/* phone layout */
+.ms.m .ms-nav{left:7cqw;right:7cqw;top:14cqw;font-size:4cqw}
+.ms.m .ms-logo{font-size:6.4cqw;max-width:62cqw}
+.ms.m .ms-menu{display:none}
+.ms.m .ms-pill{font-size:3.4cqw}
+.ms.m .ms-art{left:7cqw;right:7cqw;top:28cqw;width:auto;height:66cqw;border-radius:calc(var(--shape) / 3)}
+.ms.m[data-style="spa"] .ms-art,.ms.m[data-style="couture"] .ms-art{border-radius:40cqw 40cqw 4cqw 4cqw}
+.ms.m .ms-copy{left:7cqw;right:7cqw;top:101cqw;width:auto;gap:3.2cqw}
+.ms.m .ms-eye{font-size:3.2cqw}
+.ms.m .ms-h{font-size:11cqw}
+.ms.m.long .ms-h{font-size:9cqw}
+.ms.m .ms-p{display:none}
+.ms.m .ms-btns span{font-size:3.2cqw}
+.ms.m .ms-btns span+span{display:none}
+.ms.m .ms-wire .w1{left:7cqw;top:14cqw;width:34cqw;height:6cqw}
+.ms.m .ms-wire .w2{right:7cqw;top:14cqw;width:20cqw;height:6cqw}
+.ms.m .ms-wire .w3{left:7cqw;top:104cqw;width:76cqw;height:9cqw}
+.ms.m .ms-wire .w4{left:7cqw;top:115cqw;width:60cqw;height:9cqw}
+.ms.m .ms-wire .w5{left:7cqw;top:128cqw;width:70cqw;height:3cqw}
+.ms.m .ms-wire .w6{display:none}
+.ms.m .ms-wire .w7{left:7cqw;top:136cqw;width:40cqw;height:9cqw}
+.ms.m .ms-wire .w8{left:7cqw;right:7cqw;width:auto;top:28cqw;height:66cqw;border-radius:30cqw 30cqw 4cqw 4cqw}
+
+/* ===== devices ===== */
+.dev{position:relative;border-radius:14px;background:#F7F3EC;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.dev.desk{aspect-ratio:16/10.6;box-shadow:0 60px 120px -50px rgba(0,0,0,.85)}
+.dev .bar{height:7.2%;min-height:22px;background:#E9E3D9;display:flex;align-items:center;gap:6px;padding-inline:12px;position:relative;z-index:2}
+.dev .bar i{width:9px;height:9px;border-radius:50%;background:#CFC5B6;flex:none}
+.dev .url{margin-left:10px;font:500 10px/1 var(--f-mono);color:#7B6F60;background:#F7F3EC;border-radius:6px;padding:5px 10px;display:inline-flex;gap:6px;align-items:center;max-width:70%;overflow:hidden;white-space:nowrap}
+.dev .url .lk{width:8px;height:8px;border-radius:2px;background:#CFC5B6;transition:background .4s}
+.dev .url.secure .lk{background:#2FA35B}
+.dev .scr{position:absolute;left:0;right:0;bottom:0;top:7.2%}
+.dev.desk .scr{top:max(7.2%,22px)}
+.dev.phone{border-radius:28px;border:6px solid #070D0C;background:#070D0C;aspect-ratio:9/19;box-shadow:0 40px 80px -30px rgba(0,0,0,.9)}
+.dev.phone .scr{inset:0;border-radius:22px;overflow:hidden}
+.dev.phone .notch{position:absolute;left:50%;top:6px;transform:translateX(-50%);width:34%;height:16px;border-radius:999px;background:#070D0C;z-index:3}
+
+/* ===== HERO 3D ===== */
+.hero-stage{position:relative;perspective:1500px;min-width:0}
+.scene{position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx,6deg)) rotateY(var(--ry,-14deg));will-change:transform;padding-bottom:6%}
+.scene .desk{transform:translateZ(0)}
+.scene .phone{position:absolute;right:-4%;bottom:-2%;width:23%;transform:translateZ(90px)}
+.scene .glare{position:absolute;inset:0 0 6% 0;border-radius:14px;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.16) calc(var(--gx,50%) - 8%),transparent calc(var(--gx,50%) + 12%));mix-blend-mode:screen;transform:translateZ(1px)}
+.scene .floor{position:absolute;left:8%;right:8%;bottom:-6%;height:12%;background:radial-gradient(closest-side,rgba(0,0,0,.55),transparent);filter:blur(10px);transform:translateZ(-60px) rotateX(70deg)}
+.hsteps{position:absolute;left:12px;bottom:calc(6% + 12px);display:flex;gap:6px;z-index:4;transform:translateZ(40px)}
+.hsteps span{font:500 10px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:rgba(13,29,28,.85);color:#EDF0EB;opacity:.35;transition:opacity .3s}
+.hsteps span.on{opacity:1;background:var(--sun);color:#1A0E04}
+@media (prefers-reduced-motion:no-preference){.scene.idle{animation:float 9s ease-in-out infinite}@keyframes float{0%,100%{transform:rotateX(6deg) rotateY(-14deg) translateY(0)}50%{transform:rotateX(3deg) rotateY(-6deg) translateY(-10px)}}}
+.try{position:relative;margin-top:clamp(18px,3vw,30px);background:rgba(255,255,255,.04);border:1px solid var(--night-line);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:12px;backdrop-filter:blur(8px)}
+.try .label{color:var(--sun)}
+.try-row{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--night-line);padding-bottom:6px}
+.try-row input{all:unset;flex:1;min-width:0;font-family:var(--f-display);font-weight:700;font-size:clamp(1.4rem,1rem + 1.6vw,2rem);letter-spacing:-.02em;color:var(--on-night);font-variation-settings:"wdth" 82}
+.try-row input::placeholder{color:color-mix(in srgb,var(--on-night) 35%,transparent)}
+.try-row .kbd{font:500 10px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--on-night-mute);border:1px solid var(--night-line);border-radius:6px;padding:5px 7px;white-space:nowrap}
+.try-chips{display:flex;flex-wrap:wrap;gap:8px}
+.try-chips button{all:unset;cursor:pointer;font-family:var(--f-display);font-weight:600;font-size:.88rem;padding:.5em .95em;border-radius:999px;border:1px solid var(--night-line);color:var(--on-night-mute);transition:background .25s,color .25s,border-color .25s}
+.try-chips button[aria-pressed="true"]{background:var(--on-night);color:var(--night);border-color:var(--on-night)}
+.try-cta{align-self:flex-start;max-height:0;opacity:0;overflow:hidden;padding-block:0;margin-top:-12px;transition:max-height .5s var(--ease),opacity .4s,padding .4s,margin .4s}
+.try.typed .try-cta{max-height:80px;opacity:1;padding-block:.8em;margin-top:0}
+
+/* ===== STORY (sticky build) ===== */
+.story{background:var(--night);color:var(--on-night)}
+.story .label{color:var(--on-night-mute)}
+.story .sec-head h2 em{color:var(--sun)}
+.story-grid{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(24px,5vw,72px);align-items:start}
+.story-steps{list-style:none;margin:0;padding:0}
+.story-steps li{min-height:64vh;display:flex;flex-direction:column;justify-content:center;gap:12px;opacity:.28;transition:opacity .5s var(--ease)}
+.story-steps li.on{opacity:1}
+.story-steps .sn{font-family:var(--f-mono);font-size:.78rem;color:var(--sun);letter-spacing:.1em}
+.story-steps h3{font-size:clamp(1.8rem,1.2rem + 2vw,3rem);font-variation-settings:"wdth" 80}
+.story-steps p{color:var(--on-night-mute);max-width:40ch;font-size:1.05rem}
+.story-dev{position:sticky;top:16vh}
+.story-dev .desk{box-shadow:0 60px 120px -50px rgba(0,0,0,.9)}
+.story-meter{display:flex;gap:6px;margin-top:16px}
+.story-meter i{flex:1;height:3px;border-radius:2px;background:var(--night-line);overflow:hidden;position:relative}
+.story-meter i::after{content:"";position:absolute;inset:0;background:var(--sun);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s var(--ease)}
+.story-meter i.on::after{transform:scaleX(1)}
+.st-book{position:absolute;right:4%;bottom:6%;width:42%;z-index:3;display:flex;flex-direction:column;gap:8px;align-items:flex-end;opacity:0;transform:translateY(20px) scale(.96);transition:opacity .5s var(--ease),transform .6s var(--ease);pointer-events:none}
+.st-card{background:#fff;color:#1D2A28;border-radius:12px;padding:12px 14px;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);width:100%;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:clamp(9px,.85vw,12px)}
+.st-card b{display:block;font-size:1.1em;margin-bottom:6px}
+.st-card .chips{display:flex;flex-wrap:wrap;gap:4px}
+.st-card .chips span{border:1px solid #D7DDD9;border-radius:999px;padding:3px 7px}
+.st-card .chips span.on{background:#1D2A28;color:#fff;border-color:#1D2A28}
+.st-bubble{background:#DCF8C6;color:#0B141A;border-radius:10px 10px 2px 10px;padding:8px 10px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:clamp(9px,.85vw,12px);max-width:90%;box-shadow:0 10px 20px -10px rgba(0,0,0,.4)}
+.st-google{position:absolute;left:4%;bottom:6%;width:46%;z-index:3;background:#fff;color:#202124;border-radius:12px;padding:12px 14px;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);font-family:Arial,system-ui,sans-serif;font-size:clamp(9px,.85vw,12px);opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.st-google small{color:#4D5156;display:block}
+.st-google b{color:#1A0DAB;font-weight:400;font-size:1.35em;display:block;margin:2px 0}
+.st-google .stars{color:#E7711B;letter-spacing:1px}
+.live-badge{margin-left:auto;font:600 9px/1 var(--f-mono);letter-spacing:.1em;padding:4px 7px;border-radius:999px;background:#2FA35B;color:#fff;opacity:0;transform:scale(.6);transition:opacity .4s,transform .5s var(--ease)}
+.story-dev[data-step="4"] .st-book,.story-dev[data-step="5"] .st-book{opacity:1;transform:none}
+.story-dev[data-step="5"] .st-google{opacity:1;transform:none}
+.story-dev[data-step="5"] .live-badge{opacity:1;transform:none}
+@media (max-width:900px){
+  .story-grid{grid-template-columns:1fr;gap:0}
+  .story-dev{order:-1;top:calc(env(safe-area-inset-top,0px) + 72px);z-index:3;padding-bottom:10px;background:linear-gradient(var(--night) 85%,transparent)}
+  .story-steps li{min-height:58vh}
+  .st-book{width:56%}.st-google{width:60%}
+}
+
+/* ===== BEFORE / AFTER ===== */
+.ba{position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);--pos:50%;user-select:none;touch-action:pan-y;background:#E9EBEE}
+.ba-side{position:absolute;inset:0}
+.ba-after{clip-path:inset(0 0 0 var(--pos));transition:clip-path .05s linear}
+.ba-after .ms{inset:0}
+.ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:#fff;z-index:4;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.ba-knob{position:absolute;top:50%;left:var(--pos);width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--sun);color:#1A0E04;display:grid;place-items:center;z-index:5;box-shadow:0 10px 30px -8px rgba(0,0,0,.5);font:700 18px/1 var(--f-display);pointer-events:none}
+.ba input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:6;margin:0;-webkit-appearance:none;appearance:none;background:transparent}
+.ba input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:64px;height:600px;cursor:ew-resize}
+.ba-tag{position:absolute;top:14px;z-index:5;font:600 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
+.ba-tag.l{left:14px;background:#B42318;color:#fff}
+.ba-tag.r{right:14px;background:#2FA35B;color:#fff}
+.note-pin{position:absolute;z-index:3;font:600 clamp(9px,.95vw,12px)/1.25 var(--f-display);padding:6px 9px;border-radius:8px;max-width:30%;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
+.ba-before .note-pin{background:#FDE8E7;color:#8A1C12;border:1px solid #F3B4AE}
+.ba-after .note-pin{background:#E3F6EA;color:#14532D;border:1px solid #A8DDBA}
+/* the "before": a generic, messy social page (not any real brand) */
+.soc{position:absolute;inset:0;background:#F0F2F5;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#1C1E21;font-size:clamp(8px,.9vw,12px);overflow:hidden}
+.soc-top{height:8%;background:#fff;border-bottom:1px solid #DADDE1;display:flex;align-items:center;gap:8px;padding:0 3%}
+.soc-top i{width:22px;height:22px;border-radius:50%;background:#8A8D91;flex:none}
+.soc-top span{height:9px;border-radius:5px;background:#E4E6EB;width:26%}
+.soc-cover{position:absolute;left:3%;right:3%;top:10%;height:26%;border-radius:8px;overflow:hidden;background:#C9CCD1}
+.soc-cover img{width:100%;height:100%;object-fit:cover;filter:blur(3px) saturate(.6) contrast(.8) brightness(.9)}
+.soc-id{position:absolute;left:5%;top:30%;display:flex;align-items:flex-end;gap:10px}
+.soc-id .av{width:clamp(36px,6vw,74px);aspect-ratio:1;border-radius:50%;background:#B0B3B8;border:3px solid #F0F2F5;overflow:hidden}
+.soc-id b{font-size:1.5em;padding-bottom:4px}
+.soc-feed{position:absolute;left:3%;right:3%;top:47%;display:grid;grid-template-columns:1fr 1.25fr;gap:2.4%}
+.soc-card{background:#fff;border-radius:8px;padding:9px 10px;box-shadow:0 1px 2px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:6px}
+.soc-card small{color:#65676B}
+.soc-card .ph{height:clamp(40px,8vw,110px);border-radius:6px;background:#D8DADF;overflow:hidden}
+.soc-card .ph img{width:100%;height:100%;object-fit:cover;filter:blur(5px) grayscale(.4)}
+.soc-cmt{background:#F0F2F5;border-radius:12px;padding:5px 9px;align-self:flex-start}
+.soc-lines span{display:block;height:7px;border-radius:4px;background:#E4E6EB;margin:5px 0}
+
+/* ===== POLISH ===== */
+.sec-head h2 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.sec-head h2 .w>span{display:inline-block}
+@property --ang{syntax:"<angle>";inherits:false;initial-value:0deg}
+.plan.pick{isolation:isolate}
+.plan.pick::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1.5px;background:conic-gradient(from var(--ang),transparent 0 60%,var(--sun) 75%,#FFD9A8 82%,transparent 92%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:2}
+@media (prefers-reduced-motion:no-preference){.plan.pick::after{animation:spin 5s linear infinite}@keyframes spin{to{--ang:360deg}}}
+[data-tilt]{transform-style:preserve-3d;transition:transform .5s var(--ease)}
+.big-word{background:linear-gradient(90deg,var(--sun),#FFC98A) no-repeat 0 0/var(--fill,0%) 100%,linear-gradient(rgba(237,240,235,.08),rgba(237,240,235,.08));-webkit-background-clip:text;background-clip:text;-webkit-text-stroke:0;letter-spacing:-.045em}
+.big-word i{-webkit-text-stroke:0;margin-left:.06em}
+@media (max-width:640px){.scene .phone{right:1%;width:24%}.hsteps span:not(.on){display:none}.ba .note-pin{display:none}.ba-tag{top:10px;font-size:10px}}
+.foot-cta{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;padding-block:clamp(40px,7vw,90px) 10px;border-bottom:1px solid var(--night-line)}
+.foot-cta h2{font-size:clamp(2.2rem,1.2rem + 4vw,4.6rem);color:var(--on-night);font-variation-settings:"wdth" 78;max-width:16ch}
+.foot-cta h2 em{font-family:var(--f-body);font-style:italic;font-weight:400;color:var(--sun)}
+.foot-cta .btn{color:var(--on-night)}
+@media (prefers-reduced-motion:reduce){.scene{transform:rotateX(4deg) rotateY(-8deg)!important}}
+
+.send-row{display:flex;flex-wrap:wrap;gap:10px}
+.btn.tg{background:#229ED9;border-color:#229ED9;color:#fff;gap:8px}
+.btn.tg:hover{background:#1B8BC0}
+.try-tg{align-self:center;font:500 13px/1 var(--f-mono);letter-spacing:.04em;color:var(--on-night-mute);text-decoration:underline;text-underline-offset:3px}
+.try-tg:hover{color:#5DB8E6}
+#tgToast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#229ED9;color:#fff;font:600 14px/1.3 var(--f-display);padding:12px 18px;border-radius:12px;box-shadow:0 20px 40px -12px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s,transform .4s var(--ease);z-index:200;max-width:calc(100vw - 32px);text-align:center}
+#tgToast.on{opacity:1;transform:translate(-50%,0)}
 </style>
 <style>.foot-nav{padding-block:10px 26px;border-bottom:1px solid var(--night-line);margin-bottom:10px}.foot-nav .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:20px;font-size:.92rem}.foot-nav h4{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px;color:var(--on-night)}.foot-nav ul{list-style:none;margin:0;padding:0}.foot-nav li{margin:.3em 0}.foot-nav a{text-decoration:none;color:var(--on-night-mute)}.foot-nav a:hover{color:var(--on-night)}.lang a{text-decoration:none}</style>
 </head>
@@ -435,19 +635,62 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
         </div>
         <p class="km" lang="km">គេហទំព័រសម្រាប់អាជីវកម្មនៅភ្នំពេញ</p>
       </div>
-      <div class="build" aria-label="A website assembling itself: wireframe, brand colours, then the finished site" data-cur="Live">
-        <div class="bar"><i></i><i></i><i></i><span>your-shop.com</span></div>
-        <div class="stage">
-          <div class="wf n"></div><div class="wf n2"></div><div class="wf h1"></div><div class="wf h2"></div><div class="wf p"></div><div class="wf p2"></div><div class="wf b"></div><div class="wf img"></div>
-          <div class="real"><img loading="lazy" decoding="async" src="/img/moana-desk.jpg" alt="The finished Moana Beauty Spa website"></div>
-          <svg class="cursor-ghost" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2l15 10-7 1.5L9 21z" fill="#fff" stroke="#132A28" stroke-width="1.5" stroke-linejoin="round"/></svg>
-          <div class="steplbl"><span data-i="b.1">1 · Wireframe</span><span data-i="b.2">2 · Your brand</span><span data-i="b.3">3 · Live</span></div>
+      <div class="hero-stage" id="heroStage">
+        <div class="scene idle" id="scene" data-cur="Tilt">
+          <div class="dev desk"><div class="bar"><i></i><i></i><i></i><span class="url" id="hUrl"><span class="lk"></span><span class="u">your-shop.com</span></span></div><div class="scr"><div class="ms" id="msDesk" data-ph="0"></div></div></div>
+          <div class="dev phone"><span class="notch"></span><div class="scr"><div class="ms m" id="msPhone" data-ph="0"></div></div></div>
+          <div class="glare" aria-hidden="true"></div>
+          <div class="floor" aria-hidden="true"></div>
+          <div class="hsteps" id="hSteps"><span data-i="b.1">1 · Wireframe</span><span data-i="b.2">2 · Your brand</span><span data-i="b.3">3 · Live</span></div>
+        </div>
+        <div class="try" id="try">
+          <label class="label" for="tryName" data-i="try.l">Try it · type the name of your shop</label>
+          <div class="try-row"><input id="tryName" maxlength="26" autocomplete="off" spellcheck="false" placeholder="Your shop name" data-ph-en="Your shop name" data-ph-fr="Le nom de votre commerce"><span class="kbd" data-i="try.k">Live</span></div>
+          <div class="try-chips" id="tryChips" role="group" aria-label="Trade">
+            <button type="button" data-k="resto" aria-pressed="true" data-i="tr.resto">Restaurant</button>
+            <button type="button" data-k="spa" aria-pressed="false" data-i="tr.spa">Spa &amp; salon</button>
+            <button type="button" data-k="shop" aria-pressed="false" data-i="tr.shop">Boutique</button>
+            <button type="button" data-k="cafe" aria-pressed="false" data-i="tr.cafe">Café</button>
+            <button type="button" data-k="studio" aria-pressed="false" data-i="tr.studio">Studio</button>
+          </div>
+          <a class="btn solid try-cta mag" id="tryCta" href="#contact" target="_blank" rel="noopener"><span data-i="try.cta">I want this one · free preview</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
+          <a class="try-tg" id="tryTg" href="https://t.me/+33687723145" target="_blank" rel="noopener" data-tgmsg><span data-i="try.tg">or on Telegram</span></a>
         </div>
       </div>
     </div>
   </section>
 
   <div class="marq" aria-hidden="true"><div class="marq-track" id="marq"><span>Daun Penh <i></i></span><span>BKK1 <i></i></span><span>Tonle Bassac <i></i></span><span>Toul Tom Poung <i></i></span><span>Sisowath Quay <i></i></span><span>Daun Penh <i></i></span><span>BKK1 <i></i></span><span>Tonle Bassac <i></i></span><span>Toul Tom Poung <i></i></span><span>Sisowath Quay <i></i></span></div></div>
+
+  <section id="story" class="story">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="label" data-i="st.eyebrow">How your site gets built</p>
+        <h2 data-i="st.h2">Five layers. <em>Watch yours come together.</em></h2>
+      </div>
+      <div class="story-grid">
+        <ol class="story-steps" id="storySteps">
+          <li data-s="1" class="on"><span class="sn">01</span><h3 data-i="st.1h">Structure</h3><p data-i="st.1p">The skeleton first: where your name goes, your menu, your booking button. Designed for a phone before anything else.</p></li>
+          <li data-s="2"><span class="sn">02</span><h3 data-i="st.2h">Your brand</h3><p data-i="st.2p">Your colours, your typefaces, your tone of voice. Taken from your logo and your shop, never from a template.</p></li>
+          <li data-s="3"><span class="sn">03</span><h3 data-i="st.3h">Your photos</h3><p data-i="st.3p">Your dishes, your room, your team. Compressed so the page stays light on 4G.</p></li>
+          <li data-s="4"><span class="sn">04</span><h3 data-i="st.4h">Bookings</h3><p data-i="st.4p">A booking form that writes the WhatsApp message for your client. No app, no commission.</p></li>
+          <li data-s="5"><span class="sn">05</span><h3 data-i="st.5h">Online</h3><p data-i="st.5p">Your own address, the lock, Google. Your site is live, and it belongs to you.</p></li>
+        </ol>
+        <div class="story-dev" id="storyDev" data-step="1">
+          <div class="dev desk"><div class="bar"><i></i><i></i><i></i><span class="url" id="sUrl"><span class="lk"></span><span class="u">your-shop.com</span></span><span class="live-badge">LIVE</span></div>
+            <div class="scr"><div class="ms" id="msStory" data-ph="0"></div>
+              <div class="st-book" aria-hidden="true">
+                <div class="st-card"><b id="stBookT">Book a table</b><div class="chips"><span data-i="stc.1">Today</span><span class="on" data-i="stc.2">Friday</span><span data-i="stc.3">Saturday</span></div><div class="chips" style="margin-top:4px"><span>18:30</span><span class="on">19:30</span><span>20:30</span></div></div>
+                <div class="st-bubble" id="stBubble">Hello! A table for two, Friday at 19:30. Thank you!</div>
+              </div>
+              <div class="st-google" aria-hidden="true"><small id="stgUrl">https://your-shop.com</small><b id="stgName">Your shop · Phnom Penh</b><span class="stars">★★★★★</span> <span data-i="stg.p">Open now · Book online</span></div>
+            </div>
+          </div>
+          <div class="story-meter" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="lab">
     <div class="wrap">
@@ -484,6 +727,43 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     </div>
   </section>
 
+  <section id="ba" class="alt">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="label" data-i="ba.eyebrow">Before · after</p>
+        <h2 data-i="ba.h2">Same shop. <em>Drag to see the difference.</em></h2>
+        <p data-i="ba.p">On the left, what most clients find today: a social page where prices hide in a photo and the hours date from last year. On the right, the same shop with its own site.</p>
+      </div>
+      <div class="ba rv" id="baBox" data-cur="Drag">
+        <div class="ba-side ba-before" aria-hidden="true">
+          <div class="soc">
+            <div class="soc-top"><i></i><span></span><span style="width:14%;margin-left:auto"></span></div>
+            <div class="soc-cover"><img loading="lazy" decoding="async" src="/img/preview-02.jpg" alt=""></div>
+            <div class="soc-id"><span class="av"></span><b id="socName">Your shop</b></div>
+            <div class="soc-feed">
+              <div class="soc-card"><small data-i="soc.1">Pinned · March 2025</small><span data-i="soc.2">PRICE LIST 👇 (see photo)</span><div class="ph"><img loading="lazy" decoding="async" src="/img/preview-03.jpg" alt=""></div></div>
+              <div class="soc-card"><small data-i="soc.3">2 days ago</small><span data-i="soc.4">New this week!!! DM for booking</span><div class="soc-lines"><span style="width:90%"></span><span style="width:70%"></span></div>
+                <span class="soc-cmt" data-i="soc.5">Are you open today?</span><span class="soc-cmt" data-i="soc.6">How much for 2 people??</span><span class="soc-cmt" data-i="soc.7">Hello? 3 days no answer</span></div>
+            </div>
+            <span class="note-pin" style="left:6%;top:88%" data-i="bn.1">Prices hidden in a photo</span>
+            <span class="note-pin" style="left:42%;top:40%" data-i="bn.2">Hours from last year</span>
+            <span class="note-pin" style="left:66%;top:89%" data-i="bn.3">Booking? Send a DM and wait</span>
+          </div>
+        </div>
+        <div class="ba-side ba-after" aria-hidden="true">
+          <div class="ms" id="msBA" data-ph="3"></div>
+          <span class="note-pin" style="right:8%;top:6%;left:auto" data-i="an.1">Booking in two taps</span>
+          <span class="note-pin" style="left:54%;top:80%" data-i="an.2">Prices on the page</span>
+          <span class="note-pin" style="left:6%;top:78%" data-i="an.3">Found on Google</span>
+        </div>
+        <div class="ba-line" aria-hidden="true"></div>
+        <div class="ba-knob" aria-hidden="true">⇆</div>
+        <span class="ba-tag l" data-i="ba.l">Before</span><span class="ba-tag r" data-i="ba.r">After</span>
+        <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Before and after comparison" data-i-aria="ba.aria">
+      </div>
+    </div>
+  </section>
+
   <section id="work" class="alt">
     <div class="wrap">
       <div class="sec-head rv">
@@ -515,28 +795,25 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     <div class="rail-wrap" id="railWrap">
       <div class="rail" id="rail">
         <div class="intro">
-          <b>14</b>
+          <b>12</b>
           <h2 style="font-size:clamp(1.8rem,1.2rem + 2vw,2.6rem);font-variation-settings:'wdth' 80" data-i="pv.h2">private previews, designed before anyone paid a dollar.</h2>
-          <p style="color:var(--muted)" data-i="pv.p">Built from each shop's own logo, colours and photos. Names hidden here out of respect for each brand. Tap a card to watch it move.</p>
+          <p style="color:var(--muted)" data-i="pv.p">Built from each shop's own logo, colours and photos. Blurred here out of respect for each brand. Shown in person.</p>
         </div>
-        <figure class="cc" data-cur="Play" data-v="/img/work-01.mp4" tabindex="0" role="button" aria-label="Couture house : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-01.jpg" alt="Website concept, couture house, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.1">Couture house</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-02.mp4" tabindex="0" role="button" aria-label="Omakase counter : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-02.jpg" alt="Website concept, omakase counter, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.2">Omakase counter</b><span class="label">BKK1</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-03.mp4" tabindex="0" role="button" aria-label="Reformer pilates : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-03.jpg" alt="Website concept, reformer pilates, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.3">Reformer pilates</b><span class="label">Toul Tom Poung</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-04.mp4" tabindex="0" role="button" aria-label="Steak &amp; wok bar : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-04.jpg" alt="Website concept, steak & wok bar, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.4">Steak &amp; wok bar</b><span class="label">Phnom Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-05.mp4" tabindex="0" role="button" aria-label="Riverside bistro : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-05.jpg" alt="Website concept, riverside bistro, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.5">Riverside bistro</b><span class="label">Sisowath Quay</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-06.mp4" tabindex="0" role="button" aria-label="Tropical home concept store : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-06.jpg" alt="Website concept, tropical home concept store, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.6">Tropical home concept store</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-07.mp4" tabindex="0" role="button" aria-label="Bridal &amp; evening gowns : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-07.jpg" alt="Website concept, bridal & evening gowns, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.7">Bridal &amp; evening gowns</b><span class="label">Toul Kork</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-08.mp4" tabindex="0" role="button" aria-label="Refill &amp; local goods : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-08.jpg" alt="Website concept, refill & local goods, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.8">Refill &amp; local goods</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-09.mp4" tabindex="0" role="button" aria-label="Hair &amp; beauty salon : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-09.jpg" alt="Website concept, hair & beauty salon, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.9">Hair &amp; beauty salon</b><span class="label">Phnom Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-10.mp4" tabindex="0" role="button" aria-label="French-style florist : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-10.jpg" alt="Website concept, french-style florist, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.10">French-style florist</b><span class="label">Phnom Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-11.mp4" tabindex="0" role="button" aria-label="Linen boutique : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-11.jpg" alt="Website concept, linen boutique, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.11">Linen boutique</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-12.mp4" tabindex="0" role="button" aria-label="Contemporary art studio : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-12.jpg" alt="Website concept, contemporary art studio, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.12">Contemporary art studio</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-13.mp4" tabindex="0" role="button" aria-label="Made-to-order fashion : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-13.jpg" alt="Website concept, made-to-order fashion, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.13">Made-to-order fashion</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-14.mp4" tabindex="0" role="button" aria-label="Holiday boutique &amp; bar : play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-14.jpg" alt="Website concept, holiday boutique & bar, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.14">Holiday boutique &amp; bar</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-01.jpg" alt="" loading="lazy"><figcaption><b data-i="c.1">Couture house</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-02.jpg" alt="" loading="lazy"><figcaption><b data-i="c.2">Omakase counter</b><span class="label">BKK1</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-03.jpg" alt="" loading="lazy"><figcaption><b data-i="c.3">Reformer pilates</b><span class="label">Toul Tom Poung</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-04.jpg" alt="" loading="lazy"><figcaption><b data-i="c.4">Steak &amp; wok bar</b><span class="label">Phnom Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-05.jpg" alt="" loading="lazy"><figcaption><b data-i="c.5">Riverside bistro</b><span class="label">Sisowath Quay</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-06.jpg" alt="" loading="lazy"><figcaption><b data-i="c.6">Refill &amp; local goods</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-07.jpg" alt="" loading="lazy"><figcaption><b data-i="c.7">Hair &amp; beauty salon</b><span class="label">Phnom Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-08.jpg" alt="" loading="lazy"><figcaption><b data-i="c.8">Linen boutique</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-09.jpg" alt="" loading="lazy"><figcaption><b data-i="c.9">Contemporary art studio</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-10.jpg" alt="" loading="lazy"><figcaption><b data-i="c.10">Made-to-order fashion</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-11.jpg" alt="" loading="lazy"><figcaption><b data-i="c.11">Holiday boutique &amp; bar</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-12.jpg" alt="" loading="lazy"><figcaption><b data-i="c.12">Pottery café</b><span class="label">Tonle Bassac</span></figcaption></figure>
       </div>
     </div>
   </section>
-  <div class="vbox" id="vbox" role="dialog" aria-modal="true" aria-label="Website concept preview"><button type="button" id="vboxX" aria-label="Close">×</button><figure><video id="vboxV" muted autoplay loop playsinline preload="none"></video><figcaption><b id="vboxT"></b><small data-i="vb.note">Concept made before any payment. Shop name hidden.</small></figcaption></figure></div>
 
   <section id="features">
     <div class="wrap">
@@ -684,7 +961,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
       <div class="sec-head">
         <p class="label" data-i="ct.eyebrow">Free preview</p>
         <h2 data-i="ct.h2">Tell me about your shop. <em>Watch the message write itself.</em></h2>
-        <p data-i="ct.p">Fill the form: the phone writes your WhatsApp message as you type. Press the button and it opens, ready to send.</p>
+        <p data-i="ct.p">Fill the form: the phone writes your message as you type. Then pick WhatsApp or Telegram, it opens ready to send.</p>
       </div>
       <div class="contact-grid">
         <div>
@@ -698,10 +975,11 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
               <select id="f-want" name="want"><option data-i="w1">A free preview</option><option>Essential</option><option>Signature</option><option>Premium</option><option data-i="w2">Google visibility</option></select></div>
             <div class="field full"><label for="f-msg" data-i="fm.msg">Anything else? (optional)</label><textarea id="f-msg" name="msg"></textarea></div>
             <p class="err" id="err" role="alert"></p>
-            <button class="btn solid mag" type="submit"><span data-i="fm.send">Prepare my WhatsApp message</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
+            <button class="btn solid mag" type="submit"><span data-i="fm.send">Prepare my message</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
           </form>
           <div class="direct">
-            <span>WhatsApp · Telegram <a href="https://wa.me/33687723145" target="_blank" rel="noopener">+33 6 87 72 31 45</a></span>
+            <span>WhatsApp <a href="https://wa.me/33687723145" target="_blank" rel="noopener">+33 6 87 72 31 45</a></span>
+            <span>Telegram <a href="https://t.me/+33687723145" target="_blank" rel="noopener">+33 6 87 72 31 45</a></span>
             <span>Email <a href="mailto:vincent@atelierpenh.com">vincent@atelierpenh.com</a></span>
           </div>
         </div>
@@ -718,8 +996,8 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 
 <footer>
   <div class="wrap">
-    <div class="foot-nav"><div class="cols"><div><h4>By trade</h4><ul><li><a href="/restaurant-website-phnom-penh">Restaurant websites</a></li><li><a href="/spa-salon-website-phnom-penh">Spa &amp; salon websites</a></li><li><a href="/boutique-website-phnom-penh">Boutique websites</a></li><li><a href="/hotel-website-phnom-penh">Hotel &amp; guesthouse websites</a></li></ul></div><div><h4>Guides</h4><ul><li><a href="/website-cost-phnom-penh">Website cost in Phnom Penh</a></li><li><a href="/website-vs-facebook-page">Website or Facebook page?</a></li><li><a href="/whatsapp-booking-website">WhatsApp bookings from your site</a></li></ul></div><div><h4>Studio</h4><ul><li><a href="/">Home</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/fr">Version française</a></li></ul></div><div><h4>Contact</h4><ul><li><a href="https://wa.me/33687723145">WhatsApp +33 6 87 72 31 45</a></li><li><a href="https://t.me/+33687723145">Telegram</a></li><li><a href="mailto:vincent@atelierpenh.com">vincent@atelierpenh.com</a></li><li>Phnom Penh, Cambodia</li></ul></div></div></div>
-    <div class="big-word" aria-hidden="true">Atelier<i>Penh</i></div>
+    <div class="foot-cta"><h2 data-i="fc.h">Your shop, online <em>in 14 days.</em></h2><a class="btn solid mag" href="#contact"><span data-i="fc.b">Get my free preview</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a></div>
+    <div class="big-word" id="bigWord" aria-hidden="true">Atelier<i>Penh</i></div>
     <div class="row"><span>© 2026 Atelier Penh · French web studio · Phnom Penh</span><span>vincent@atelierpenh.com · +33 6 87 72 31 45</span></div>
   </div>
 </footer>
@@ -730,6 +1008,19 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 <script>
 (function(){
   const WHATSAPP = "33687723145";
+  const TG_URL = "https://t.me/+33687723145";
+  const TG_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5zM9.8 14.4l-.4 4-1.6-5 9.4-6-7.4 7z"/></svg>';
+  let TGMSG = { form: '', hero: '' };
+  function tgToast(txt){
+    let t = document.getElementById('tgToast');
+    if (!t){ t = document.createElement('div'); t.id = 'tgToast'; t.setAttribute('role','status'); document.body.appendChild(t); }
+    t.textContent = txt; t.classList.add('on'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('on'), 5200);
+  }
+  document.addEventListener('click', e => {
+    const a = e.target.closest('[data-tgmsg]'); if (!a) return;
+    const m = a.id === 'tryTg' ? TGMSG.hero : TGMSG.form; if (!m) return;
+    try { navigator.clipboard.writeText(m).then(() => tgToast(T[lang].copied)).catch(() => {}); } catch(_){}
+  });
   const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -737,6 +1028,19 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 
   /* ---------- copy ---------- */
   const FR = {
+    "try.l":"Essayez · tapez le nom de votre commerce","try.k":"En direct","tr.resto":"Restaurant","tr.spa":"Spa &amp; salon","tr.shop":"Boutique","tr.cafe":"Café","tr.studio":"Studio","try.cta":"Je veux celui-là · maquette offerte",
+    "st.eyebrow":"Comment votre site se construit","st.h2":"Cinq couches. <em>Regardez le vôtre prendre forme.</em>",
+    "st.1h":"La structure","st.1p":"D'abord le squelette : où va votre nom, votre carte, votre bouton de réservation. Pensé pour le téléphone avant tout.",
+    "st.2h":"Votre marque","st.2p":"Vos couleurs, vos polices, votre ton. Pris dans votre logo et votre boutique, jamais dans un modèle.",
+    "st.3h":"Vos photos","st.3p":"Vos plats, votre salle, votre équipe. Compressées pour que la page reste légère en 4G.",
+    "st.4h":"Les réservations","st.4p":"Un formulaire qui écrit le message WhatsApp à la place du client. Pas d'appli, pas de commission.",
+    "st.5h":"En ligne","st.5p":"Votre adresse, le cadenas, Google. Votre site est en ligne, et il vous appartient.",
+    "stc.1":"Aujourd'hui","stc.2":"Vendredi","stc.3":"Samedi","stg.p":"Ouvert · Réservation en ligne",
+    "ba.eyebrow":"Avant · après","ba.h2":"Le même commerce. <em>Glissez pour voir la différence.</em>","ba.p":"À gauche, ce que trouvent la plupart des clients aujourd'hui : une page de réseau social où les prix se cachent dans une photo et les horaires datent de l'an dernier. À droite, le même commerce avec son propre site.",
+    "soc.1":"Épinglé · mars 2025","soc.2":"TARIFS 👇 (voir photo)","soc.3":"Il y a 2 jours","soc.4":"Nouveau cette semaine !!! MP pour réserver","soc.5":"Vous êtes ouverts aujourd'hui ?","soc.6":"C'est combien pour 2 ??","soc.7":"Allô ? 3 jours sans réponse",
+    "bn.1":"Prix cachés dans une photo","bn.2":"Horaires de l'an dernier","bn.3":"Réserver ? Envoyez un MP et attendez",
+    "an.1":"Réservation en deux gestes","an.2":"Prix sur la page","an.3":"Trouvé sur Google","ba.l":"Avant","ba.r":"Après",
+    "fc.h":"Votre commerce, en ligne <em>en 14 jours.</em>","fc.b":"Recevoir ma maquette offerte",
     "nav.lab":"Labo de marque","nav.work":"Réalisation","nav.features":"Fonctions","nav.pricing":"Tarifs","nav.cta":"Maquette offerte",
     "hero.eyebrow":"Création de sites internet à Phnom Penh · Studio français","hero.h1":"Votre site, dessiné à partir de <em>votre propre marque.</em>",
     "hero.lede":"J'étudie votre boutique, vos couleurs et vos photos, puis je vous prépare gratuitement une maquette de votre site. Vous dites oui, et il est en ligne en 3 à 14 jours, avec les réservations envoyées directement sur votre WhatsApp ou votre Telegram.",
@@ -751,8 +1055,8 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     "chip.1":"Une page par soin","chip.2":"Tarifs complets","chip.3":"Réservation par message","chip.4":"Prêt pour Google",
     "work.p":"Un spa à Tonle Bassac, à quelques minutes de BKK1. Chaque soin a sa page, les prix sont clairs avant d'entrer, et chaque demande de réservation arrive dans les messages de l'équipe.",
     "f.where":"Où","f.pages":"Pages","f.pagesv":"Accueil, massage, head spa, soins du visage, ongles, épilation, tarifs","f.book":"Réservations","f.bookv":"Demandes confirmées par l'équipe, par message","work.cta":"Voir le site en ligne",
-    "pv.h2":"maquettes privées, dessinées avant que quiconque paie un dollar.","pv.p":"Construites à partir du logo, des couleurs et des photos de chaque commerce. Noms masqués ici par respect pour chaque marque. Touchez une carte pour la voir bouger.",
-    "lock":"Concept","vb.note":"Maquette faite avant tout paiement. Nom du commerce masqué.","c.1":"Maison de couture","c.2":"Comptoir omakase","c.3":"Studio de pilates","c.4":"Bar steak & wok","c.5":"Bistro du quai","c.6":"Concept store maison tropicale","c.7":"Robes de mariée & de soirée","c.8":"Épicerie vrac & local","c.9":"Salon de coiffure","c.10":"Fleuriste à la française","c.11":"Boutique de lin","c.12":"Atelier d'art contemporain","c.13":"Mode sur mesure","c.14":"Boutique & bar vacances",
+    "pv.h2":"maquettes privées, dessinées avant que quiconque paie un dollar.","pv.p":"Construites à partir du logo, des couleurs et des photos de chaque commerce. Floutées ici par respect pour chaque marque. Montrées en rendez-vous.",
+    "lock":"Privé","c.1":"Maison de couture","c.2":"Comptoir omakase","c.3":"Studio de pilates","c.4":"Bar steak & wok","c.5":"Bistro du quai","c.6":"Épicerie vrac & local","c.7":"Salon de coiffure","c.8":"Boutique de lin","c.9":"Atelier d'art contemporain","c.10":"Mode sur mesure","c.11":"Boutique & bar vacances","c.12":"Café céramique",
     "ft.eyebrow":"Ce que votre site sait faire · touchez","ft.h2":"Pas une plaquette. <em>Un site qui travaille pour vous.</em>",
     "d1.h":"Les réservations directement sur votre WhatsApp","d1.what":"Pour","d1.when":"Quand","d1.time":"Heure","d1.shop":"Votre commerce","d1.p":"Votre cliente touche, WhatsApp s'ouvre avec le message déjà écrit. Pas d'appli, pas de commission.",
     "d2.h":"Trois langues","d2.p":"Anglais, français et khmer, chaque langue avec sa propre adresse pour que Google montre la bonne.",
@@ -786,8 +1090,8 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     "ab.2":"Avant les sites, j'ai monté une maison d'édition : des livres illustrés en quatre langues. Le même métier, sur un autre écran.",
     "ab.3":"Je travaille avec peu de commerces à la fois, pour pouvoir passer vous voir, vous montrer la maquette sur tablette et répondre moi-même à vos messages.",
     "ct.eyebrow":"Maquette offerte","ct.h2":"Parlez-moi de votre commerce. <em>Regardez le message s'écrire.</em>",
-    "ct.p":"Remplissez le formulaire : le téléphone écrit votre message WhatsApp pendant que vous tapez. Appuyez sur le bouton, il s'ouvre, prêt à partir.",
-    "fm.name":"Votre nom","fm.biz":"Nom du commerce","fm.link":"Lien Facebook, Instagram ou Google Maps","fm.type":"Votre activité","fm.want":"Ce qui m'intéresse","fm.msg":"Autre chose ? (facultatif)","fm.send":"Préparer mon message WhatsApp",
+    "ct.p":"Remplissez le formulaire : le téléphone écrit votre message pendant que vous tapez. Choisissez WhatsApp ou Telegram, il s'ouvre, prêt à partir.",
+    "fm.name":"Votre nom","fm.biz":"Nom du commerce","fm.link":"Lien Facebook, Instagram ou Google Maps","fm.type":"Votre activité","fm.want":"Ce qui m'intéresse","fm.msg":"Autre chose ? (facultatif)","fm.send":"Préparer mon message","try.tg":"ou sur Telegram","dir.wa":"WhatsApp","dir.tg":"Telegram",
     "o1":"Restaurant ou café","o2":"Boutique","o3":"Spa, salon ou studio","o4":"Hôtel ou guesthouse","o5":"Autre","w1":"Une maquette offerte","w2":"Visibilité Google",
     "wa.sub":"répond en général dans la journée"
   };
@@ -796,11 +1100,11 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
   const T = {
     en:{ what:["a table for two","a massage","a fitting"], when:["today","Friday","Saturday"], hello:"Hello", want:"I'd like to book", at:"at", thanks:"Thank you!",
          msgHi:n => `Hello Vincent, I'm ${n}`, from:b => ` from ${b}`, biz:"Business", int:"Interested in", empty:"Start typing your name…",
-         ready:"Your message is ready.", readyP:"WhatsApp opens with the text already written. Just press Send.", open:"Open WhatsApp", errT:"Please add your name and your business name.",
+         ready:"Your message is ready.", readyP:"WhatsApp opens with the text already written. On Telegram, the text is copied: paste it and send.", open:"Send on WhatsApp", openTg:"Send on Telegram", copied:"Message copied. Paste it in Telegram and press Send.", errT:"Please add your name and your business name.",
          chips:{bkWhat:["A table for two","A massage","A fitting"],bkWhen:["Today","Friday","Saturday"]} },
     fr:{ what:["une table pour deux","un massage","un essayage"], when:["aujourd'hui","vendredi","samedi"], hello:"Bonjour", want:"Je voudrais réserver", at:"à", thanks:"Merci !",
          msgHi:n => `Bonjour Vincent, je suis ${n}`, from:b => ` (${b})`, biz:"Activité", int:"Intéressé par", empty:"Commencez par votre nom…",
-         ready:"Votre message est prêt.", readyP:"WhatsApp s'ouvre avec le texte déjà écrit. Appuyez sur Envoyer.", open:"Ouvrir WhatsApp", errT:"Indiquez votre nom et celui de votre commerce.",
+         ready:"Votre message est prêt.", readyP:"WhatsApp s'ouvre avec le texte déjà écrit. Sur Telegram, le texte est copié : collez-le et envoyez.", open:"Envoyer sur WhatsApp", openTg:"Envoyer sur Telegram", copied:"Message copié. Collez-le dans Telegram et appuyez sur Envoyer.", errT:"Indiquez votre nom et celui de votre commerce.",
          chips:{bkWhat:["Une table pour deux","Un massage","Un essayage"],bkWhen:["Aujourd'hui","Vendredi","Samedi"]} }
   };
   function setLang(l){
@@ -810,6 +1114,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     Object.entries(T[lang].chips).forEach(([id, arr]) => $$('#'+id+' button').forEach((b,i) => b.textContent = arr[i]));
     
     applyTrade(curTrade, true); bookUpd(); prevUpd();
+    if (typeof repaintAll === 'function' && MS && MS.desk) repaintAll();
   }
 
   /* ---------- brand lab ---------- */
@@ -840,7 +1145,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
       b1:{en:"Try 3 classes",fr:"Essayer 3 cours"}, b2:{en:"All packs",fr:"Tous les forfaits"}, img:"pil",
       v:{b:"#ECEDE6",f:"#2F3B33",a:"#6F8C78",m:"#7E8A80",df:'"Cormorant Garamond",Georgia,serif',bf:'"Newsreader",Georgia,serif',shape:"180px 180px 180px 180px"} }
   };
-  const IMGS = { cou:"/img/preview-01.jpg", oma:"/img/preview-02.jpg", spa:"/img/moana-desk.jpg", caf:"/img/preview-12.jpg", pil:"/img/preview-03.jpg" };
+  const IMGS = { cou:"/img/preview-01.jpg", oma:"/img/preview-02.jpg", spa:"/img/spa-photo.jpg", caf:"/img/preview-12.jpg", pil:"/img/preview-03.jpg" };
   let curTrade = 'couture';
   const ls = $('#ls');
   function applyTrade(k, instant){
@@ -895,10 +1200,156 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     e.preventDefault(); const L = T[lang];
     if (!v('f-name') || !v('f-biz')){ $('#err').textContent = L.errT; return; }
     $('#err').textContent = '';
-    const href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(buildMsg());
+    const href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(buildMsg()); TGMSG.form = buildMsg();
     let d = $('#form .done'); if (!d){ d = document.createElement('div'); d.className = 'done'; $('#form').appendChild(d); }
-    d.innerHTML = `<b style="font-family:var(--f-display);font-size:1.15rem">${L.ready}</b><span style="color:var(--on-night-mute);font-size:.95rem">${L.readyP}</span><a class="btn solid" href="${href}" target="_blank" rel="noopener" style="align-self:flex-start">${L.open}</a>`;
+    d.innerHTML = `<b style="font-family:var(--f-display);font-size:1.15rem">${L.ready}</b><span style="color:var(--on-night-mute);font-size:.95rem">${L.readyP}</span><div class="send-row"><a class="btn solid" href="${href}" target="_blank" rel="noopener">${L.open}</a><a class="btn tg" href="${TG_URL}" target="_blank" rel="noopener" data-tgmsg>${TG_ICON}${L.openTg}</a></div>`;
   });
+
+
+  /* ---------- mini sites: hero 3D, story, before/after ---------- */
+  const PT = {
+    resto:{ style:'omakase', demo:'Lotus Kitchen', label:{en:'Restaurant',fr:'Restaurant'}, eye:{en:'Restaurant · Phnom Penh',fr:'Restaurant · Phnom Penh'},
+      tag:{en:'Your table is waiting.',fr:'Votre table vous attend.'}, p:{en:'Seasonal cooking, a short menu, and a table you can book in two taps.',fr:'Une cuisine de saison, une carte courte, et une table qui se réserve en deux gestes.'},
+      menu:{en:'Menu · Visit',fr:'Carte · Venir'}, pill:{en:'Book',fr:'Réserver'}, b1:{en:'Book a table',fr:'Réserver une table'}, b2:{en:'The menu',fr:'La carte'},
+      bub:{en:'Hello! A table for two, Friday at 19:30. Thank you!',fr:'Bonjour ! Une table pour deux, vendredi à 19 h 30. Merci !'} },
+    spa:{ style:'spa', demo:'Pause Spa', label:{en:'Spa & salon',fr:'Spa & salon'}, eye:{en:'Beauty spa · Phnom Penh',fr:'Spa · Phnom Penh'},
+      tag:{en:'The city, on pause.',fr:'La ville, en pause.'}, p:{en:'Massage, facials and nails, with clear prices from the first page.',fr:'Massages, soins du visage et ongles, avec des prix clairs dès la première page.'},
+      menu:{en:'Treatments · Prices',fr:'Soins · Tarifs'}, pill:{en:'Book',fr:'Réserver'}, b1:{en:'Book a treatment',fr:'Réserver un soin'}, b2:{en:'See prices',fr:'Voir les tarifs'},
+      bub:{en:'Hello! A massage on Friday at 19:30, please.',fr:"Bonjour ! Un massage vendredi à 19 h 30, s'il vous plaît."} },
+    shop:{ style:'couture', demo:'Maison Sora', label:{en:'Boutique',fr:'Boutique'}, eye:{en:'Boutique · Phnom Penh',fr:'Boutique · Phnom Penh'},
+      tag:{en:'Made to be worn.',fr:'Fait pour être porté.'}, p:{en:'New pieces every month, and private fittings on request.',fr:'De nouvelles pièces chaque mois, et des essayages privés sur demande.'},
+      menu:{en:'Collections · The shop',fr:'Collections · La boutique'}, pill:{en:'Fitting',fr:'Essayage'}, b1:{en:'Book a fitting',fr:'Réserver un essayage'}, b2:{en:'Collections',fr:'Collections'},
+      bub:{en:'Hello! A fitting on Friday at 19:30?',fr:'Bonjour ! Un essayage vendredi à 19 h 30 ?'} },
+    cafe:{ style:'cafe', demo:'Little Bean', label:{en:'Café',fr:'Café'}, eye:{en:'Café · Phnom Penh',fr:'Café · Phnom Penh'},
+      tag:{en:'Coffee, slowly.',fr:'Le café, sans se presser.'}, p:{en:'Beans roasted in town, a quiet garden, and cakes until they run out.',fr:"Des grains torréfiés en ville, un jardin calme, et des gâteaux jusqu'à épuisement."},
+      menu:{en:'Menu · Garden',fr:'Carte · Jardin'}, pill:{en:'Visit',fr:'Venir'}, b1:{en:'See the menu',fr:'Voir la carte'}, b2:{en:'Find us',fr:'Nous trouver'},
+      bub:{en:'Hello! A table for four, Friday at 19:30?',fr:'Bonjour ! Une table pour quatre, vendredi à 19 h 30 ?'} },
+    studio:{ style:'pilates', demo:'Studio Nine', label:{en:'Studio',fr:'Studio'}, eye:{en:'Studio · Phnom Penh',fr:'Studio · Phnom Penh'},
+      tag:{en:'Breathe first. Then move.',fr:"D'abord respirer. Puis bouger."}, p:{en:'Small classes, morning and evening, five machines and light wood.',fr:'Des petits cours, matin et soir, cinq machines et du bois clair.'},
+      menu:{en:'Classes · Packs',fr:'Cours · Forfaits'}, pill:{en:'Book',fr:'Réserver'}, b1:{en:'Book a class',fr:'Réserver un cours'}, b2:{en:'Timetable',fr:'Horaires'},
+      bub:{en:'Hello! A class on Friday at 19:30, please.',fr:"Bonjour ! Un cours vendredi à 19 h 30, s'il vous plaît."} }
+  };
+  const PS = { name:'', demoName:'', k:'resto' };
+  const MS = { desk:$('#msDesk'), phone:$('#msPhone'), story:$('#msStory'), ba:$('#msBA') };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const shownName = () => PS.name || PS.demoName || (lang === 'fr' ? 'Votre commerce' : 'Your shop');
+  const slug = s => ((s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'')) || 'yourshop').slice(0,22) + '.com';
+  const WIRE = '<div class="ms-wire" aria-hidden="true"><i class="w1"></i><i class="w2"></i><i class="w3"></i><i class="w4"></i><i class="w5"></i><i class="w6"></i><i class="w7"></i><i class="w8"></i></div>';
+  function paint(el){
+    if (!el) return; const p = PT[PS.k], t = TRADES[p.style], L = lang, nm = shownName();
+    el.dataset.style = p.style;
+    Object.entries(t.v).forEach(([n,val]) => el.style.setProperty('--'+n, val));
+    el.classList.toggle('long', nm.length > 13);
+    el.innerHTML = WIRE + `<div class="ms-nav"><b class="ms-logo">${esc(nm)}</b><span class="ms-menu">${p.menu[L]}</span><span class="ms-pill">${p.pill[L]}</span></div>`
+      + `<div class="ms-copy"><span class="ms-eye">${p.eye[L]}</span><span class="ms-h">${esc(nm)}.<em>${p.tag[L]}</em></span><span class="ms-p">${p.p[L]}</span><span class="ms-btns"><span>${p.b1[L]}</span><span>${p.b2[L]}</span></span></div>`
+      + `<div class="ms-art" data-tag="${L === 'fr' ? 'Vos photos ici' : 'Your photos here'}"><img loading="lazy" decoding="async" src="${IMGS[t.img]}" alt=""></div>`;
+  }
+  const hSteps = $$('#hSteps span'), hUrl = $('#hUrl'), inp = $('#tryName'), tryBox = $('#try');
+  let bt = [];
+  function phase(ph){ ['desk','phone'].forEach(k => MS[k].dataset.ph = ph); hSteps.forEach((s,i) => s.classList.toggle('on', i === (ph >= 3 ? 2 : ph >= 1 ? 1 : 0))); hUrl.classList.toggle('secure', ph >= 3); }
+  function rebuildHero(fast){
+    bt.forEach(clearTimeout); bt = [];
+    paint(MS.desk); paint(MS.phone); hUrl.querySelector('.u').textContent = slug(shownName());
+    if (reduce){ phase(3); return; }
+    ['desk','phone'].forEach(k => { const e = MS[k]; e.classList.remove('wbuild'); void e.offsetWidth; e.classList.add('wbuild'); });
+    phase(0); const d = fast ? 420 : 950;
+    bt.push(setTimeout(() => phase(1), d)); bt.push(setTimeout(() => phase(3), d * 2));
+  }
+  function liveName(){
+    const nm = shownName();
+    ['desk','phone'].forEach(k => { const e = MS[k]; e.classList.toggle('long', nm.length > 13); const lg = e.querySelector('.ms-logo'); if (lg) lg.textContent = nm; const h = e.querySelector('.ms-h'); if (h && h.firstChild) h.firstChild.textContent = nm + '.'; });
+    bt.forEach(clearTimeout); bt = []; phase(3);
+    hUrl.querySelector('.u').textContent = slug(nm);
+    paintOthers();
+  }
+  const sDev = $('#storyDev'), sSteps = $$('#storySteps li'), meter = $$('.story-meter i');
+  function paintOthers(){
+    const nm = shownName(), p = PT[PS.k];
+    paint(MS.story); paint(MS.ba);
+    $('#socName').textContent = nm; $('#stgName').textContent = nm + ' · Phnom Penh'; $('#stgUrl').textContent = 'https://' + slug(nm);
+    $('#stBookT').textContent = p.b1[lang]; $('#stBubble').textContent = p.bub[lang];
+    const n = +sDev.dataset.step; $('#sUrl .u').textContent = (n === 5 ? 'https://' : '') + slug(nm);
+  }
+  function storyStep(n){
+    if (+sDev.dataset.step === n && MS.story.dataset.ph) {}
+    sDev.dataset.step = n;
+    sSteps.forEach(li => li.classList.toggle('on', +li.dataset.s === n));
+    meter.forEach((m,i) => m.classList.toggle('on', i < n));
+    const ms = MS.story; ms.dataset.ph = n === 1 ? 0 : n === 2 ? 2 : 3;
+    if (n === 1 && !reduce){ ms.classList.remove('wbuild'); void ms.offsetWidth; ms.classList.add('wbuild'); }
+    $('#sUrl').classList.toggle('secure', n === 5); $('#sUrl .u').textContent = (n === 5 ? 'https://' : '') + slug(shownName());
+  }
+  if ('IntersectionObserver' in window){
+    const so = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) storyStep(+en.target.dataset.s); }), { rootMargin:'-42% 0px -42% 0px' });
+    sSteps.forEach(li => so.observe(li));
+  }
+  function setChips(){ $$('#tryChips button').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === PS.k)); }
+  function updateCta(){
+    const nm = PS.name, lbl = PT[PS.k].label[lang];
+    const txt = lang === 'fr' ? `Bonjour Vincent, j'aimerais une maquette offerte du site de ${nm} (${lbl}).` : `Hello Vincent, I'd like a free preview of a website for ${nm} (${lbl}).`;
+    $('#tryCta').href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(txt); TGMSG.hero = txt;
+    const biz = $('#f-biz'); if (biz && (!biz.value || biz.dataset.auto)){ biz.value = nm; biz.dataset.auto = '1'; }
+    const ft = $('#f-type'); if (ft) ft.selectedIndex = { resto:0, cafe:0, shop:1, spa:2, studio:2 }[PS.k];
+    if (typeof prevUpd === 'function') prevUpd();
+  }
+  /* demo: names type themselves until the visitor takes over */
+  const DEMO = [['resto','Lotus Kitchen'],['spa','Pause Spa'],['shop','Maison Sora'],['cafe','Little Bean'],['studio','Studio Nine']];
+  let demoOn = !reduce, di = 0, demoT, heroVis = true;
+  const phTxt = () => inp.dataset[lang === 'fr' ? 'phFr' : 'phEn'];
+  function typeDemo(){
+    if (!demoOn) return;
+    if (!heroVis){ demoT = setTimeout(typeDemo, 800); return; }
+    const [k, nm] = DEMO[di % DEMO.length]; di++;
+    PS.k = k; setChips(); PS.demoName = nm; rebuildHero(false); paintOthers();
+    let i = 0; inp.placeholder = '';
+    const tick = () => { if (!demoOn) return; inp.placeholder = nm.slice(0, ++i); if (i < nm.length) demoT = setTimeout(tick, 75); else demoT = setTimeout(typeDemo, 3600); };
+    demoT = setTimeout(tick, 250);
+  }
+  function stopDemo(){ if (!demoOn) return; demoOn = false; clearTimeout(demoT); inp.placeholder = phTxt(); }
+  inp.addEventListener('focus', () => { if (demoOn){ stopDemo(); } });
+  inp.addEventListener('input', () => {
+    stopDemo(); PS.name = inp.value.trim().slice(0, 26); if (!PS.name) PS.demoName = '';
+    tryBox.classList.toggle('typed', PS.name.length >= 2); liveName(); if (PS.name.length >= 2) updateCta();
+  });
+  $('#tryChips').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    stopDemo(); PS.k = b.dataset.k; setChips(); rebuildHero(true); paintOthers(); if (PS.name.length >= 2) updateCta();
+  });
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => { heroVis = es[0].isIntersecting; }).observe($('.hero'));
+  function repaintAll(){
+    if (!demoOn) inp.placeholder = phTxt();
+    rebuildHero(true); paintOthers(); storyStep(+sDev.dataset.step || 1);
+  }
+  /* 3D tilt: mouse on desktop, phone tilt on mobile, idle float otherwise */
+  const scene = $('#scene'), heroEl = $('.hero');
+  if (!reduce){
+    let tx = -14, ty = 6, cx = -14, cy = 6, active = false;
+    const loop = () => { cx += (tx-cx)*.08; cy += (ty-cy)*.08; scene.style.setProperty('--ry', cx.toFixed(2)+'deg'); scene.style.setProperty('--rx', cy.toFixed(2)+'deg'); scene.style.setProperty('--gx', (50 + cx*2.4).toFixed(1)+'%'); requestAnimationFrame(loop); };
+    const start = () => { if (!active){ active = true; scene.classList.remove('idle'); requestAnimationFrame(loop); } };
+    if (fine){
+      heroEl.addEventListener('pointermove', e => { const r = heroEl.getBoundingClientRect(); const x = (e.clientX-r.left)/r.width, y = (e.clientY-r.top)/r.height; tx = -14 + (x-.5)*24; ty = 6 - (y-.5)*14; start(); });
+      heroEl.addEventListener('pointerleave', () => { tx = -14; ty = 6; });
+    } else {
+      addEventListener('deviceorientation', e => { if (e.gamma == null) return; tx = -10 + Math.max(-25, Math.min(25, e.gamma))*.7; ty = 6 + Math.max(-25, Math.min(25, (e.beta || 45) - 45))*.35; start(); }, { passive:true });
+    }
+  }
+  /* before / after */
+  const baBox = $('#baBox'), baR = $('#baRange');
+  const setPos = val => baBox.style.setProperty('--pos', val + '%');
+  let baTouched = false;
+  baR.addEventListener('input', () => { baTouched = true; setPos(baR.value); });
+  if (!reduce && 'IntersectionObserver' in window){
+    const bo = new IntersectionObserver(es => { if (!es[0].isIntersecting) return; bo.disconnect();
+      const keys = [[0,50],[700,22],[1500,80],[2300,50]]; const t0 = performance.now();
+      const ease = x => x < .5 ? 2*x*x : 1 - Math.pow(-2*x + 2, 2)/2;
+      (function f(now){ if (baTouched) return; const t = now - t0; let i = 0; while (i < keys.length-2 && t > keys[i+1][0]) i++;
+        const [ta,va] = keys[i], [tb,vb] = keys[i+1]; const k = Math.min(1, Math.max(0, (t-ta)/(tb-ta))); const val = va + (vb-va)*ease(k); setPos(val.toFixed(1)); baR.value = val;
+        if (t < keys[keys.length-1][0]) requestAnimationFrame(f); })(t0);
+    }, { threshold:.45 }); bo.observe(baBox);
+  }
+  /* first paint */
+  paint(MS.story); paint(MS.ba); MS.ba.dataset.ph = 3;
+  if (demoOn) setTimeout(typeDemo, 400); else rebuildHero(true);
 
   /* ---------- language buttons ---------- */
   $$('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
@@ -939,12 +1390,20 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
   if (window.Lenis){ const lenis = new Lenis({ duration:1.1, smoothWheel:true }); lenis.on('scroll', ST.update); G.ticker.add(t => lenis.raf(t*1000)); G.ticker.lagSmoothing(0);
     $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const id = a.getAttribute('href'); if (id.length < 2) return; const el = $(id); if (!el) return; e.preventDefault(); lenis.scrollTo(el, { offset:-60 }); })); }
 
-  /* hero title words rise once */
-  const h1 = $('#heroTitle');
-  (function split(el){ [...el.childNodes].forEach(n => { if (n.nodeType === 3){ const f = document.createDocumentFragment(); n.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) f.appendChild(document.createTextNode(p)); else { const w = document.createElement('span'); w.className = 'w'; const i = document.createElement('span'); i.textContent = p; w.appendChild(i); f.appendChild(w); } }); n.replaceWith(f); } else if (n.nodeType === 1) split(n); }); })(h1);
+  /* titles: words rise from a mask */
+  function splitWords(el){ [...el.childNodes].forEach(n => { if (n.nodeType === 3){ const f = document.createDocumentFragment(); n.textContent.split(/(\s+)/).forEach(pp => { if (!pp) return; if (/^\s+$/.test(pp)) f.appendChild(document.createTextNode(pp)); else { const w = document.createElement('span'); w.className = 'w'; const i = document.createElement('span'); i.textContent = pp; w.appendChild(i); f.appendChild(w); } }); n.replaceWith(f); } else if (n.nodeType === 1 && !n.classList.contains('w')) splitWords(n); }); }
+  const h1 = $('#heroTitle'); splitWords(h1);
   G.from('#heroTitle .w>span', { yPercent:110, duration:1.1, ease:'expo.out', stagger:.06, delay:.15 });
-  G.from('.build', { y:60, rotate:2, duration:1.4, ease:'expo.out', delay:.3 });
-  G.to('.build', { yPercent:-8, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true } });
+  G.from('#heroStage', { y:70, opacity:0, duration:1.5, ease:'expo.out', delay:.35 });
+  G.to('#heroStage', { yPercent:-6, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true } });
+  $$('.sec-head h2, .foot-cta h2').forEach(h => { splitWords(h); G.from(h.querySelectorAll('.w>span'), { yPercent:115, duration:1.05, ease:'expo.out', stagger:.035, scrollTrigger:{ trigger:h, start:'top 88%', once:true } }); });
+  /* prices count up */
+  $$('.price b').forEach(b => { const raw = b.textContent, num = parseInt(raw.replace(/\D/g,''), 10); if (!num) return; const pre = raw.match(/^\D*/)[0], post = raw.match(/\D*$/)[0]; const o = { n:0 };
+    G.to(o, { n:num, duration:1.4, ease:'power3.out', scrollTrigger:{ trigger:b, start:'top 88%', once:true }, onUpdate:() => { b.textContent = pre + Math.round(o.n) + post; } }); });
+  /* footer word fills with colour */
+  G.fromTo('#bigWord', { '--fill':'0%' }, { '--fill':'100%', ease:'none', scrollTrigger:{ trigger:'footer', start:'top bottom', end:'bottom bottom', scrub:true } });
+  /* cards lean toward the pointer */
+  if (fine) $$('.tile, .plan, .cc, .extra').forEach(el => { el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); const x = (e.clientX-r.left)/r.width-.5, y = (e.clientY-r.top)/r.height-.5; el.style.transform = `perspective(900px) rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*6).toFixed(2)}deg) translateY(-3px)`; }); el.addEventListener('pointerleave', () => { el.style.transform = ''; }); });
 
   const mm = G.matchMedia();
   mm.add('(min-width: 900px)', () => {
@@ -965,10 +1424,5 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 })();
 </script>
 
-<script>/*AP-PREVIEWS*/(()=>{const box=document.getElementById('vbox'),v=document.getElementById('vboxV'),t=document.getElementById('vboxT');if(!box)return;
-const open=f=>{v.src=f.dataset.v;v.poster=f.querySelector('img').src;t.textContent=f.querySelector('figcaption b').textContent;box.classList.add('on');document.documentElement.style.overflow='hidden';v.load();v.addEventListener('canplay',()=>v.play().catch(()=>{}),{once:true});v.play().catch(()=>{});};
-const close=()=>{box.classList.remove('on');v.pause();v.removeAttribute('src');v.load();document.documentElement.style.overflow='';};
-document.querySelectorAll('.cc[data-v]').forEach(f=>{f.addEventListener('click',()=>open(f));f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(f);}});});
-document.getElementById('vboxX').addEventListener('click',close);box.addEventListener('click',e=>{if(e.target===box)close();});addEventListener('keydown',e=>{if(e.key==='Escape'&&box.classList.contains('on'))close();});})();</script>
 </body>
 </html>

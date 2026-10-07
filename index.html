@@ -539,8 +539,8 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 /* ===== BEFORE / AFTER ===== */
 .ba{position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);--pos:50%;user-select:none;touch-action:pan-y;background:#E9EBEE}
 .ba-side{position:absolute;inset:0}
-.ba-before{z-index:1;isolation:isolate}
-.ba-after{z-index:2;isolation:isolate;clip-path:inset(0 0 0 var(--pos));transition:clip-path .05s linear}
+.ba-after{z-index:1;isolation:isolate}
+.ba-before{z-index:2;isolation:isolate;clip-path:inset(0 0 0 var(--pos));transition:clip-path .05s linear}
 .ms.flip .ms-nav{flex-direction:row-reverse}.ms.flip .ms-menu{margin-left:0;margin-right:auto}
 .ms.flip .ms-copy{left:auto;right:5cqw;width:44cqw;align-items:flex-end;text-align:right}.ms.flip .ms-p{max-width:40cqw}
 .ms.flip .ms-art{right:auto;left:6cqw}
@@ -549,7 +549,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 .ba-knob{position:absolute;top:50%;left:var(--pos);width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--sun);color:#1A0E04;display:grid;place-items:center;z-index:5;box-shadow:0 10px 30px -8px rgba(0,0,0,.5);font:700 18px/1 var(--f-display);pointer-events:none}
 .ba input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:6;margin:0;-webkit-appearance:none;appearance:none;background:transparent}
 .ba input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:64px;height:600px;cursor:ew-resize}
-.ba-tag{position:absolute;top:14px;z-index:5;font:600 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
+.ba-tag{position:absolute;bottom:14px;z-index:5;font:600 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
 .ba-tag.l{left:14px;background:#B42318;color:#fff}
 .ba-tag.r{right:14px;background:#2FA35B;color:#fff}
 .note-pin{position:absolute;z-index:3;font:600 clamp(9px,.95vw,12px)/1.25 var(--f-display);padding:6px 9px;border-radius:8px;max-width:30%;box-shadow:0 8px 20px -10px rgba(0,0,0,.5)}
@@ -583,7 +583,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 [data-tilt]{transform-style:preserve-3d;transition:transform .5s var(--ease)}
 .big-word{background:linear-gradient(90deg,var(--sun),#FFC98A) no-repeat 0 0/var(--fill,0%) 100%,linear-gradient(rgba(237,240,235,.08),rgba(237,240,235,.08));-webkit-background-clip:text;background-clip:text;-webkit-text-stroke:0;letter-spacing:-.045em}
 .big-word i{-webkit-text-stroke:0;margin-left:.06em}
-@media (max-width:640px){.scene .phone{right:1%;width:24%}.hsteps span:not(.on){display:none}.ba .note-pin{display:none}.ba-tag{top:auto;bottom:10px;font-size:10px}}
+@media (max-width:640px){.scene .phone{right:1%;width:24%}.hsteps span:not(.on){display:none}.ba .note-pin{display:none}.ba-tag{bottom:10px;font-size:10px}}
 .foot-cta{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;padding-block:clamp(40px,7vw,90px) 10px;border-bottom:1px solid var(--night-line)}
 .foot-cta h2{font-size:clamp(2.2rem,1.2rem + 4vw,4.6rem);color:var(--on-night);font-variation-settings:"wdth" 78;max-width:16ch}
 .foot-cta h2 em{font-family:var(--f-body);font-style:italic;font-weight:400;color:var(--sun)}
@@ -741,7 +741,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
       <div class="sec-head rv">
         <p class="label" data-i="ba.eyebrow">Before · after</p>
         <h2 data-i="ba.h2">Same shop. <em>Drag to see the difference.</em></h2>
-        <p data-i="ba.p">On the left, what most clients find today: a social page where prices hide in a photo and the hours date from last year. On the right, the same shop with its own site.</p>
+        <p data-i="ba.p">Slide toward Before: the social page most clients find today, prices hidden in a photo, hours from last year. Slide toward After: the same shop with its own site.</p>
       </div>
       <div class="ba rv" id="baBox" data-cur="Drag">
         <div class="ba-side ba-before" aria-hidden="true">
@@ -754,23 +754,23 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
               <div class="soc-card"><small data-i="soc.3">2 days ago</small><span data-i="soc.4">New this week!!! DM for booking</span><div class="soc-lines"><span style="width:90%"></span><span style="width:70%"></span></div>
                 <span class="soc-cmt" data-i="soc.5">Are you open today?</span><span class="soc-cmt" data-i="soc.6">How much for 2 people??</span><span class="soc-cmt" data-i="soc.7">Hello? 3 days no answer</span></div>
             </div>
-            <span class="note-pin" style="left:3%;top:79%" data-i="bn.1">Prices hidden in a photo</span>
-            <span class="note-pin" style="left:30%;top:31%" data-i="bn.2">Hours from last year</span>
-            <span class="note-pin" style="left:24%;top:91%" data-i="bn.3">Booking? Send a DM and wait</span>
+            <span class="note-pin" style="left:54%;top:88%" data-i="bn.1">Prices hidden in a photo</span>
+            <span class="note-pin" style="right:4%;top:28%;left:auto" data-i="bn.2">Hours from last year</span>
+            <span class="note-pin" style="right:3%;top:94%;left:auto;transform:translateY(-100%)" data-i="bn.3">Booking? Send a DM and wait</span>
           </div>
         </div>
         <div class="ba-side ba-after" aria-hidden="true">
-          <div class="ms flip" id="msBA" data-ph="3"></div>
-          <span class="note-pin" style="right:4%;top:62%;left:auto" data-i="an.1">Booking in two taps</span>
-          <span class="note-pin" style="left:56%;top:84%" data-i="an.2">Prices on the page</span>
-          <span class="note-pin" style="right:4%;top:14%;left:auto" data-i="an.3">Found on Google</span>
+          <div class="ms" id="msBA" data-ph="3"></div>
+          <span class="note-pin" style="left:30%;top:66%" data-i="an.1">Booking in two taps</span>
+          <span class="note-pin" style="left:4%;top:86%" data-i="an.2">Prices on the page</span>
+          <span class="note-pin" style="left:4%;top:14%" data-i="an.3">Found on Google</span>
         </div>
         <div class="ba-line" aria-hidden="true"></div>
         <div class="ba-knob" aria-hidden="true">⇆</div>
-        <span class="ba-tag l" data-i="ba.l">Before</span><span class="ba-tag r" data-i="ba.r">After</span>
+        <span class="ba-tag l"><span aria-hidden="true">← </span><span data-i="ba.l">Before</span></span><span class="ba-tag r"><span data-i="ba.r">After</span><span aria-hidden="true"> →</span></span>
         <input type="range" id="baRange" min="0" max="100" value="50" aria-label="Before and after comparison" data-i-aria="ba.aria">
       </div>
-      <div class="ba-switch rv" id="baSwitch" role="group" aria-label="Before / After"><button type="button" data-v="100" aria-pressed="false"><i class="dot r"></i><span data-i="ba.l">Before</span></button><button type="button" data-v="0" aria-pressed="false"><i class="dot g"></i><span data-i="ba.r">After</span></button></div>
+      <div class="ba-switch rv" id="baSwitch" role="group" aria-label="Before / After"><button type="button" data-v="0" aria-pressed="false"><i class="dot r"></i><span data-i="ba.l">Before</span></button><button type="button" data-v="100" aria-pressed="false"><i class="dot g"></i><span data-i="ba.r">After</span></button></div>
     </div>
   </section>
 
@@ -1046,7 +1046,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     "st.4h":"Les réservations","st.4p":"Un formulaire qui écrit le message WhatsApp à la place du client. Pas d'appli, pas de commission.",
     "st.5h":"En ligne","st.5p":"Votre adresse, le cadenas, Google. Votre site est en ligne, et il vous appartient.",
     "stc.1":"Aujourd'hui","stc.2":"Vendredi","stc.3":"Samedi","stg.p":"Ouvert · Réservation en ligne",
-    "ba.eyebrow":"Avant · après","ba.h2":"Le même commerce. <em>Glissez pour voir la différence.</em>","ba.p":"À gauche, ce que trouvent la plupart des clients aujourd'hui : une page de réseau social où les prix se cachent dans une photo et les horaires datent de l'an dernier. À droite, le même commerce avec son propre site.",
+    "ba.eyebrow":"Avant · après","ba.h2":"Le même commerce. <em>Glissez pour voir la différence.</em>","ba.p":"Glissez vers Avant : la page de réseau social que trouvent la plupart des clients aujourd'hui, prix cachés dans une photo, horaires de l'an dernier. Glissez vers Après : le même commerce avec son propre site.",
     "soc.1":"Épinglé · mars 2025","soc.2":"TARIFS 👇 (voir photo)","soc.3":"Il y a 2 jours","soc.4":"Nouveau cette semaine !!! MP pour réserver","soc.5":"Vous êtes ouverts aujourd'hui ?","soc.6":"C'est combien pour 2 ??","soc.7":"Allô ? 3 jours sans réponse",
     "bn.1":"Prix cachés dans une photo","bn.2":"Horaires de l'an dernier","bn.3":"Réserver ? Envoyez un MP et attendez",
     "an.1":"Réservation en deux gestes","an.2":"Prix sur la page","an.3":"Trouvé sur Google","ba.l":"Avant","ba.r":"Après",
@@ -1347,8 +1347,8 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
   const baBox = $('#baBox'), baR = $('#baRange');
   const baBtns = [...document.querySelectorAll('#baSwitch button')];
   const setPos = val => { baBox.style.setProperty('--pos', val + '%'); const v = +val;
-    baBox.classList.toggle('only-after', v < 12); baBox.classList.toggle('only-before', v > 88);
-    baBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === '100' ? v > 50 : v <= 50))); };
+    baBox.classList.toggle('only-before', v < 12); baBox.classList.toggle('only-after', v > 88);
+    baBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === '0' ? v < 50 : v >= 50))); };
   let baAnim = 0;
   baBtns.forEach(b => b.addEventListener('click', () => { baTouched = true; cancelAnimationFrame(baAnim);
     const from = +baR.value, to = +b.dataset.v, t0 = performance.now();

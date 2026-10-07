@@ -228,21 +228,6 @@ section{padding-block:clamp(64px,9vw,128px)}
 .live::before{content:"";width:8px;height:8px;border-radius:50%;background:#3FBF6A;box-shadow:0 0 0 4px rgba(63,191,106,.2)}
 
 /* PREVIEWS rail */
-.cc{cursor:pointer}
-.cc img{height:auto}
-.cc .lock{z-index:1}
-.cc .play{position:absolute;right:12px;top:12px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--glass);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--ink);z-index:1;transition:transform .4s var(--ease)}
-.cc .play svg{width:18px;height:18px;margin-left:2px}
-.cc:hover .play,.cc:focus-visible .play{transform:scale(1.12)}
-.cc:focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
-.vbox{position:fixed;inset:0;z-index:200;display:none;place-items:center;background:rgb(10 8 6 / .86);padding:16px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.vbox.on{display:grid}
-.vbox figure{margin:0;width:min(1100px,100%);display:flex;flex-direction:column;gap:12px}
-.vbox video{width:100%;aspect-ratio:1.6;border-radius:12px;background:#000;box-shadow:0 30px 80px rgb(0 0 0 / .5)}
-.vbox figcaption{display:flex;justify-content:space-between;gap:12px;color:#F3EDE4;font-size:.95rem}
-.vbox figcaption small{opacity:.7}
-.vbox button{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgb(255 255 255 / .3);background:none;color:#fff;font-size:1.5rem;cursor:pointer}
-
 .rail-wrap{overflow:hidden}
 .rail{display:flex;gap:clamp(14px,1.8vw,24px);padding-inline:var(--gutter);will-change:transform}
 .rail .intro{flex:0 0 min(420px,80vw);display:flex;flex-direction:column;justify-content:center;gap:16px}
@@ -522,28 +507,25 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     <div class="rail-wrap" id="railWrap">
       <div class="rail" id="rail">
         <div class="intro">
-          <b>14</b>
+          <b>12</b>
           <h2 style="font-size:clamp(1.8rem,1.2rem + 2vw,2.6rem);font-variation-settings:'wdth' 80" data-i="pv.h2">private previews, designed before anyone paid a dollar.</h2>
-          <p style="color:var(--muted)" data-i="pv.p">Built from each shop's own logo, colours and photos. Names hidden here out of respect for each brand. Tap a card to watch it move.</p>
+          <p style="color:var(--muted)" data-i="pv.p">Built from each shop's own logo, colours and photos. Blurred here out of respect for each brand. Shown in person.</p>
         </div>
-        <figure class="cc" data-cur="Play" data-v="/img/work-01.mp4" tabindex="0" role="button" aria-label="Couture house: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-01.jpg" alt="Website concept, couture house, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.1">Couture house</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-02.mp4" tabindex="0" role="button" aria-label="Omakase counter: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-02.jpg" alt="Website concept, omakase counter, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.2">Omakase counter</b><span class="label">BKK1</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-03.mp4" tabindex="0" role="button" aria-label="Reformer pilates: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-03.jpg" alt="Website concept, reformer pilates, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.3">Reformer pilates</b><span class="label">Toul Tom Poung</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-04.mp4" tabindex="0" role="button" aria-label="Steak &amp; wok bar: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-04.jpg" alt="Website concept, steak and wok bar, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.4">Steak &amp; wok bar</b><span class="label">Phnom Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-05.mp4" tabindex="0" role="button" aria-label="Riverside bistro: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-05.jpg" alt="Website concept, riverside bistro, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.5">Riverside bistro</b><span class="label">Sisowath Quay</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-06.mp4" tabindex="0" role="button" aria-label="Tropical home concept store: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-06.jpg" alt="Website concept, tropical home concept store, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.6">Tropical home concept store</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-07.mp4" tabindex="0" role="button" aria-label="Bridal &amp; evening gowns: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-07.jpg" alt="Website concept, bridal and evening gowns, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.7">Bridal &amp; evening gowns</b><span class="label">Toul Kork</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-08.mp4" tabindex="0" role="button" aria-label="Refill &amp; local goods: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-08.jpg" alt="Website concept, refill and local goods, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.8">Refill &amp; local goods</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-09.mp4" tabindex="0" role="button" aria-label="Hair &amp; beauty salon: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-09.jpg" alt="Website concept, hair and beauty salon, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.9">Hair &amp; beauty salon</b><span class="label">Phnom Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-10.mp4" tabindex="0" role="button" aria-label="French-style florist: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-10.jpg" alt="Website concept, french-style florist, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.10">French-style florist</b><span class="label">Phnom Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-11.mp4" tabindex="0" role="button" aria-label="Linen boutique: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-11.jpg" alt="Website concept, linen boutique, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.11">Linen boutique</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-12.mp4" tabindex="0" role="button" aria-label="Contemporary art studio: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-12.jpg" alt="Website concept, contemporary art studio, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.12">Contemporary art studio</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-13.mp4" tabindex="0" role="button" aria-label="Made-to-order fashion: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-13.jpg" alt="Website concept, made-to-order fashion, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.13">Made-to-order fashion</b><span class="label">Daun Penh</span></figcaption></figure>
-        <figure class="cc" data-cur="Play" data-v="/img/work-14.mp4" tabindex="0" role="button" aria-label="Holiday boutique &amp; bar: play preview"><span class="lock" data-i="lock">Concept</span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><img src="/img/work-14.jpg" alt="Website concept, holiday boutique and bar, Phnom Penh" loading="lazy" width="960" height="600"><figcaption><b data-i="c.14">Holiday boutique &amp; bar</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-01.jpg" alt="" loading="lazy"><figcaption><b data-i="c.1">Couture house</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-02.jpg" alt="" loading="lazy"><figcaption><b data-i="c.2">Omakase counter</b><span class="label">BKK1</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-03.jpg" alt="" loading="lazy"><figcaption><b data-i="c.3">Reformer pilates</b><span class="label">Toul Tom Poung</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-04.jpg" alt="" loading="lazy"><figcaption><b data-i="c.4">Steak &amp; wok bar</b><span class="label">Phnom Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-05.jpg" alt="" loading="lazy"><figcaption><b data-i="c.5">Riverside bistro</b><span class="label">Sisowath Quay</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-06.jpg" alt="" loading="lazy"><figcaption><b data-i="c.6">Refill &amp; local goods</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-07.jpg" alt="" loading="lazy"><figcaption><b data-i="c.7">Hair &amp; beauty salon</b><span class="label">Phnom Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-08.jpg" alt="" loading="lazy"><figcaption><b data-i="c.8">Linen boutique</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-09.jpg" alt="" loading="lazy"><figcaption><b data-i="c.9">Contemporary art studio</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-10.jpg" alt="" loading="lazy"><figcaption><b data-i="c.10">Made-to-order fashion</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-11.jpg" alt="" loading="lazy"><figcaption><b data-i="c.11">Holiday boutique &amp; bar</b><span class="label">Daun Penh</span></figcaption></figure>
+        <figure class="cc" data-cur="Private"><span class="lock" data-i="lock">Private</span><img src="/img/preview-12.jpg" alt="" loading="lazy"><figcaption><b data-i="c.12">Pottery café</b><span class="label">Tonle Bassac</span></figcaption></figure>
       </div>
     </div>
   </section>
-  <div class="vbox" id="vbox" role="dialog" aria-modal="true" aria-label="Website concept preview"><button type="button" id="vboxX" aria-label="Close">×</button><figure><video id="vboxV" muted autoplay loop playsinline preload="none"></video><figcaption><b id="vboxT"></b><small data-i="vb.note">Concept made before any payment. Shop name hidden.</small></figcaption></figure></div>
 
   <section id="features">
     <div class="wrap">
@@ -648,7 +630,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
             <li><span data-i="k.lang">Languages</span><span data-i="p.lang">English + 2 languages</span></li>
             <li><span data-i="k.book">Bookings</span><span data-i="p.book">Auto confirmation, reminder, online deposit (ABA PayWay)</span></li>
             <li><span data-i="k.time">Online in</span><span data-i="p.time">14 days</span></li>
-            <li><span data-i="k.chg">Changes</span><span data-i="p.chg">4 per month, monthly catalogue update</span></li>
+            <li><span data-i="k.chg">Changes</span><span data-i="p.chg">2 per month, monthly catalogue update</span></li>
           </ul>
         </div>
       </div>
@@ -758,8 +740,8 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     "chip.1":"Une page par soin","chip.2":"Tarifs complets","chip.3":"Réservation par message","chip.4":"Prêt pour Google",
     "work.p":"Un spa à Tonle Bassac, à quelques minutes de BKK1. Chaque soin a sa page, les prix sont clairs avant d'entrer, et chaque demande de réservation arrive dans les messages de l'équipe.",
     "f.where":"Où","f.pages":"Pages","f.pagesv":"Accueil, massage, head spa, soins du visage, ongles, épilation, tarifs","f.book":"Réservations","f.bookv":"Demandes confirmées par l'équipe, par message","work.cta":"Voir le site en ligne",
-    "pv.h2":"maquettes privées, dessinées avant que quiconque paie un dollar.","pv.p":"Construites à partir du logo, des couleurs et des photos de chaque commerce. Noms masqués ici par respect pour chaque marque. Touchez une carte pour la voir bouger.",
-    "lock":"Concept","vb.note":"Maquette faite avant tout paiement. Nom du commerce masqué.","c.1":"Maison de couture","c.2":"Comptoir omakase","c.3":"Studio de pilates","c.4":"Bar steak & wok","c.5":"Bistro du quai","c.6":"Concept store maison tropicale","c.7":"Robes de mariée & de soirée","c.8":"Épicerie vrac & local","c.9":"Salon de coiffure","c.10":"Fleuriste à la française","c.11":"Boutique de lin","c.12":"Atelier d'art contemporain","c.13":"Mode sur mesure","c.14":"Boutique & bar vacances",
+    "pv.h2":"maquettes privées, dessinées avant que quiconque paie un dollar.","pv.p":"Construites à partir du logo, des couleurs et des photos de chaque commerce. Floutées ici par respect pour chaque marque. Montrées en rendez-vous.",
+    "lock":"Privé","c.1":"Maison de couture","c.2":"Comptoir omakase","c.3":"Studio de pilates","c.4":"Bar steak & wok","c.5":"Bistro du quai","c.6":"Épicerie vrac & local","c.7":"Salon de coiffure","c.8":"Boutique de lin","c.9":"Atelier d'art contemporain","c.10":"Mode sur mesure","c.11":"Boutique & bar vacances","c.12":"Café céramique",
     "ft.eyebrow":"Ce que votre site sait faire · touchez","ft.h2":"Pas une plaquette. <em>Un site qui travaille pour vous.</em>",
     "d1.h":"Les réservations directement sur votre WhatsApp","d1.what":"Pour","d1.when":"Quand","d1.time":"Heure","d1.shop":"Votre commerce","d1.p":"Votre cliente touche, WhatsApp s'ouvre avec le message déjà écrit. Pas d'appli, pas de commission.",
     "d2.h":"Trois langues","d2.p":"Anglais, français et khmer, chaque langue avec sa propre adresse pour que Google montre la bonne.",
@@ -776,7 +758,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
     "k.pages":"Pages","k.lang":"Langues","k.book":"Réservations","k.time":"En ligne en","k.chg":"Modifications",
     "e.pages":"1 longue page","e.lang":"Anglais","e.book":"Bouton WhatsApp ou Telegram","e.time":"3 jours","e.chg":"1 par trimestre",
     "s.pages":"Jusqu'à 5 pages","s.lang":"Anglais + 1 langue","s.book":"Formulaire avec alerte immédiate","s.time":"7 jours","s.chg":"1 par mois",
-    "p.pages":"Jusqu'à 10 pages","p.lang":"Anglais + 2 langues","p.book":"Confirmation et rappel automatiques, acompte en ligne (ABA PayWay)","p.time":"14 jours","p.chg":"4 par mois, catalogue mis à jour chaque mois",
+    "p.pages":"Jusqu'à 10 pages","p.lang":"Anglais + 2 langues","p.book":"Confirmation et rappel automatiques, acompte en ligne (ABA PayWay)","p.time":"14 jours","p.chg":"2 par mois, catalogue mis à jour chaque mois",
     "x1.h":"Sans avance","x1.p":"Signature sans frais de mise en place : 79 $/mois pendant 12 mois, puis 29 $/mois.",
     "x2.h":"Visibilité Google","x2.p":"Votre fiche Google en 3 langues, une carte QR pour les avis en boutique, Apple Maps et TripAdvisor : 149 $, puis 29 $/mois.",
     "x3.h":"Zéro commission","x3.p":"Les réservations via votre propre site ne vous coûtent rien par client, contrairement aux applis et plateformes.",
@@ -972,13 +954,5 @@ footer .row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-betw
 })();
 </script>
 
-<script>
-(()=>{const box=document.getElementById('vbox'),v=document.getElementById('vboxV'),t=document.getElementById('vboxT');
-const open=f=>{v.src=f.dataset.v;v.poster=f.querySelector('img').src;t.textContent=f.querySelector('figcaption b').textContent;box.classList.add("on");document.documentElement.style.overflow="hidden";v.load();v.addEventListener("canplay",()=>v.play().catch(()=>{}),{once:true});v.play().catch(()=>{});};
-const close=()=>{box.classList.remove('on');v.pause();v.removeAttribute('src');v.load();document.documentElement.style.overflow='';};
-document.querySelectorAll('.cc[data-v]').forEach(f=>{f.addEventListener('click',()=>open(f));f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(f);}});});
-document.getElementById('vboxX').addEventListener('click',close);box.addEventListener('click',e=>{if(e.target===box)close();});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&box.classList.contains('on'))close();});})();
-</script>
 </body>
 </html>

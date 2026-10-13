@@ -1,0 +1,67 @@
+/* Client site design. Colours come from site.config.json (theme), injected as CSS variables. */
+:root{--accent:#A8481F;--bg:#FBF7F2;--text:#1F1A17;--muted:#5E544D}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{line-height:1.15;margin:0 0 .5em;font-family:Georgia,"Times New Roman",serif;font-weight:700}
+h2{font-size:clamp(1.6rem,5vw,2.2rem)}
+h3{font-size:1.2rem}
+.skip{position:absolute;left:-999px;top:0;background:var(--text);color:var(--bg);padding:.6em 1em;z-index:10}
+.skip:focus{left:8px;top:8px}
+
+.hero{position:relative;min-height:min(78vh,640px);min-height:min(78svh,640px);display:flex;align-items:flex-end;color:#fff;background:var(--text);overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.15) 65%)}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:960px;margin:0 auto;padding:32px 16px 40px}
+.hero h1{font-size:clamp(2.2rem,9vw,4rem);margin:0}
+.tagline{font-size:1.15rem;margin:.4em 0 1.2em;max-width:36em}
+
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 18px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;border:2px solid var(--accent)}
+.btn-ghost{background:transparent;color:inherit;border-color:currentColor}
+.hero .btn-ghost{color:#fff}
+
+.nav{position:sticky;top:0;z-index:5;display:flex;gap:4px;overflow-x:auto;padding:8px 12px;background:var(--bg);border-bottom:1px solid rgba(0,0,0,.08);scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;padding:10px 14px;border-radius:999px;text-decoration:none;color:var(--text);font-weight:600;white-space:nowrap}
+.nav a:hover{background:rgba(0,0,0,.06)}
+
+.section{max-width:960px;margin:0 auto;padding:48px 16px;scroll-margin-top:60px}
+.section+.section{border-top:1px solid rgba(0,0,0,.08)}
+.note{color:var(--muted);font-size:.95rem}
+
+.menu{display:grid;gap:28px}
+@media (min-width:760px){.menu{grid-template-columns:1fr 1fr;gap:28px 48px}}
+.menu-cat h3{color:var(--accent);text-transform:uppercase;letter-spacing:.06em;font-family:inherit;font-size:.95rem}
+.menu-cat ul{list-style:none;margin:0;padding:0}
+.menu-cat li{padding:10px 0;border-bottom:1px dashed rgba(0,0,0,.15)}
+.mi-head{display:flex;align-items:baseline;gap:8px}
+.mi-name{font-weight:600}
+.mi-dots{flex:1}
+.mi-price{font-weight:700;white-space:nowrap}
+.menu-cat li p{margin:.2em 0 0;color:var(--muted);font-size:.95rem}
+
+.gallery{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:760px){.gallery{grid-template-columns:repeat(3,1fr)}}
+.gallery figure{margin:0}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;background:rgba(0,0,0,.06)}
+.gallery figcaption{font-size:.9rem;color:var(--muted);margin-top:4px}
+
+.hours{width:100%;max-width:480px;border-collapse:collapse}
+.hours th,.hours td{padding:10px 4px;border-bottom:1px solid rgba(0,0,0,.08);text-align:left;font-weight:400}
+.hours td{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.today{font-weight:700;color:var(--accent)}
+.hours tr.today th{font-weight:700}
+
+address{font-style:normal;margin-bottom:1em}
+.social{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.social a{display:inline-block;padding:10px 16px;border:2px solid currentColor;border-radius:999px;text-decoration:none;font-weight:600;min-height:44px}
+
+.footer{text-align:center;padding:32px 16px 96px;color:var(--muted);font-size:.9rem}
+.footer p{margin:.2em 0}
+.fab{position:fixed;right:16px;bottom:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#1B7F4B;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:6}
+.fab svg{width:28px;height:28px}

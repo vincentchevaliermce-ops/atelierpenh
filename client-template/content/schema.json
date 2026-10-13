@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "key": "business",
+      "icon": "✏️",
+      "type": "object",
+      "label": { "en": "Texts", "fr": "Textes" },
+      "help": { "en": "Your name, slogan and story.", "fr": "Votre nom, slogan et histoire." },
+      "fields": [
+        { "key": "name", "type": "text", "max": 60, "required": true, "label": { "en": "Business name", "fr": "Nom du commerce" } },
+        { "key": "tagline", "type": "text", "max": 110, "label": { "en": "Slogan (one short line)", "fr": "Slogan (une ligne courte)" } },
+        { "key": "about", "type": "longtext", "max": 1200, "label": { "en": "About us", "fr": "À propos" } },
+        { "key": "heroImage", "type": "image", "label": { "en": "Main photo (top of the page)", "fr": "Photo principale (en haut)" } },
+        { "key": "heroAlt", "type": "text", "max": 120, "label": { "en": "Describe the main photo (for Google and blind visitors)", "fr": "Décrivez la photo principale (pour Google et les malvoyants)" } },
+        { "key": "seoDescription", "type": "longtext", "max": 160, "label": { "en": "Short description shown on Google", "fr": "Courte description affichée sur Google" } }
+      ]
+    },
+    {
+      "key": "menu",
+      "icon": "🍽️",
+      "type": "object",
+      "label": { "en": "Menu & prices", "fr": "Carte & prix" },
+      "help": { "en": "Your dishes, drinks or services, with prices.", "fr": "Vos plats, boissons ou prestations, avec les prix." },
+      "fields": [
+        { "key": "title", "type": "text", "max": 40, "label": { "en": "Title", "fr": "Titre" } },
+        { "key": "note", "type": "text", "max": 160, "label": { "en": "Small note (optional)", "fr": "Petite note (facultatif)" } },
+        {
+          "key": "categories", "type": "list", "max": 20, "itemTitle": "name",
+          "label": { "en": "Categories", "fr": "Catégories" },
+          "addLabel": { "en": "Add a category", "fr": "Ajouter une catégorie" },
+          "fields": [
+            { "key": "name", "type": "text", "max": 50, "label": { "en": "Category name", "fr": "Nom de la catégorie" } },
+            {
+              "key": "items", "type": "list", "max": 60, "itemTitle": "name",
+              "label": { "en": "Items", "fr": "Articles" },
+              "addLabel": { "en": "Add an item", "fr": "Ajouter un article" },
+              "fields": [
+                { "key": "name", "type": "text", "max": 70, "label": { "en": "Name", "fr": "Nom" } },
+                { "key": "price", "type": "text", "max": 14, "placeholder": "$4.50", "label": { "en": "Price", "fr": "Prix" } },
+                { "key": "description", "type": "longtext", "max": 220, "label": { "en": "Description (optional)", "fr": "Description (facultatif)" } }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gallery",
+      "icon": "📷",
+      "type": "list",
+      "max": 24,
+      "itemTitle": "caption",
+      "label": { "en": "Photos", "fr": "Photos" },
+      "help": { "en": "Add, change or remove photos.", "fr": "Ajoutez, changez ou retirez des photos." },
+      "addLabel": { "en": "Add a photo", "fr": "Ajouter une photo" },
+      "fields": [
+        { "key": "image", "type": "image", "label": { "en": "Photo", "fr": "Photo" } },
+        { "key": "caption", "type": "text", "max": 100, "label": { "en": "What is in the photo?", "fr": "Que voit-on sur la photo ?" } }
+      ]
+    },
+    {
+      "key": "hours",
+      "icon": "🕒",
+      "type": "object",
+      "label": { "en": "Opening hours", "fr": "Horaires" },
+      "help": { "en": "When are you open?", "fr": "Quand êtes-vous ouvert ?" },
+      "fields": [
+        { "key": "mon", "type": "day", "label": { "en": "Monday", "fr": "Lundi" } },
+        { "key": "tue", "type": "day", "label": { "en": "Tuesday", "fr": "Mardi" } },
+        { "key": "wed", "type": "day", "label": { "en": "Wednesday", "fr": "Mercredi" } },
+        { "key": "thu", "type": "day", "label": { "en": "Thursday", "fr": "Jeudi" } },
+        { "key": "fri", "type": "day", "label": { "en": "Friday", "fr": "Vendredi" } },
+        { "key": "sat", "type": "day", "label": { "en": "Saturday", "fr": "Samedi" } },
+        { "key": "sun", "type": "day", "label": { "en": "Sunday", "fr": "Dimanche" } },
+        { "key": "note", "type": "text", "max": 140, "label": { "en": "Note (e.g. closed on public holidays)", "fr": "Note (ex. : fermé les jours fériés)" } }
+      ]
+    },
+    {
+      "key": "contact",
+      "icon": "📞",
+      "type": "object",
+      "label": { "en": "Contact", "fr": "Coordonnées" },
+      "help": { "en": "Phone, WhatsApp, address, map.", "fr": "Téléphone, WhatsApp, adresse, plan." },
+      "fields": [
+        { "key": "phone", "type": "phone", "placeholder": "+855 12 345 678", "label": { "en": "Phone", "fr": "Téléphone" } },
+        { "key": "whatsapp", "type": "phone", "placeholder": "+855 12 345 678", "label": { "en": "WhatsApp number", "fr": "Numéro WhatsApp" } },
+        { "key": "telegram", "type": "text", "max": 40, "placeholder": "@yourname", "label": { "en": "Telegram username", "fr": "Nom d'utilisateur Telegram" } },
+        { "key": "email", "type": "email", "label": { "en": "Email", "fr": "E-mail" } },
+        { "key": "address", "type": "longtext", "max": 200, "label": { "en": "Address", "fr": "Adresse" } },
+        { "key": "mapLink", "type": "url", "placeholder": "https://maps.app.goo.gl/…", "label": { "en": "Google Maps link", "fr": "Lien Google Maps" } }
+      ]
+    },
+    {
+      "key": "social",
+      "icon": "💬",
+      "type": "object",
+      "label": { "en": "Social media", "fr": "Réseaux sociaux" },
+      "help": { "en": "Links to your pages. Leave empty to hide.", "fr": "Liens vers vos pages. Laisser vide pour masquer." },
+      "fields": [
+        { "key": "facebook", "type": "url", "placeholder": "https://facebook.com/…", "label": { "en": "Facebook", "fr": "Facebook" } },
+        { "key": "instagram", "type": "url", "placeholder": "https://instagram.com/…", "label": { "en": "Instagram", "fr": "Instagram" } },
+        { "key": "tiktok", "type": "url", "placeholder": "https://tiktok.com/@…", "label": { "en": "TikTok", "fr": "TikTok" } },
+        { "key": "google", "type": "url", "placeholder": "https://g.page/…", "label": { "en": "Google reviews", "fr": "Avis Google" } }
+      ]
+    }
+  ]
+}

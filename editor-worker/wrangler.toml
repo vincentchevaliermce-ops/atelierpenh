@@ -1,0 +1,23 @@
+# Cloudflare Worker for the client editor. No secret in this file:
+# secrets are added with `npx wrangler secret put NAME` or in the dashboard.
+name = "atelierpenh-editor"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+# One entry per client that has the editor (offer B). See SETUP-NOUVEAU-CLIENT.md.
+CLIENTS = '''
+{
+  "demo-cafe": {
+    "repo": "YOUR-GITHUB-ACCOUNT/demo-cafe",
+    "branch": "main",
+    "origins": ["https://democafe.com", "https://www.democafe.com"]
+  }
+}
+'''
+
+# Optional (recommended): blocks password guessing. Create the KV namespace
+# in the dashboard (Storage & Databases → KV), then uncomment with its id.
+# [[kv_namespaces]]
+# binding = "LOGIN_KV"
+# id = "PUT-THE-KV-ID-HERE"

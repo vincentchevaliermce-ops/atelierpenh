@@ -1,0 +1,21 @@
+{
+  "clientId": "demo-cafe",
+  "siteUrl": "https://example.com/",
+  "domain": "",
+  "language": "en",
+  "businessType": "Restaurant",
+  "priceRange": "$$",
+  "city": "Phnom Penh",
+  "country": "KH",
+  "theme": {
+    "accent": "#A8481F",
+    "background": "#FBF7F2",
+    "text": "#1F1A17",
+    "muted": "#5E544D"
+  },
+  "editor": {
+    "enabled": true,
+    "apiUrl": ""
+  },
+  "credit": true
+}

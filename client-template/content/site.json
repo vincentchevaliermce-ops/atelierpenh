@@ -1,0 +1,60 @@
+{
+  "business": {
+    "name": "Demo Café",
+    "tagline": "Fresh Khmer and French food, near the Russian Market",
+    "about": "We opened in 2019 with one idea: good food, fair prices, a warm welcome.\nEverything is cooked fresh every morning with produce from the market next door.",
+    "heroImage": "img/hero.jpg",
+    "heroAlt": "Our dining room with wooden tables and plants",
+    "seoDescription": "Café and restaurant in Phnom Penh: Khmer and French food cooked fresh every day. Open 7 days, near the Russian Market."
+  },
+  "menu": {
+    "title": "Menu",
+    "note": "Prices in USD. Riel accepted.",
+    "categories": [
+      {
+        "name": "Breakfast",
+        "items": [
+          { "name": "Bai sach chrouk", "price": "$3.50", "description": "Grilled pork, broken rice, pickles." },
+          { "name": "French omelette", "price": "$4.00", "description": "Three eggs, herbs, toast." }
+        ]
+      },
+      {
+        "name": "Drinks",
+        "items": [
+          { "name": "Iced coffee", "price": "$1.75", "description": "" },
+          { "name": "Fresh coconut", "price": "$2.00", "description": "" }
+        ]
+      }
+    ]
+  },
+  "gallery": [
+    { "image": "img/dish-1.jpg", "caption": "Bai sach chrouk" },
+    { "image": "img/dish-2.jpg", "caption": "Fresh spring rolls" },
+    { "image": "img/dish-3.jpg", "caption": "Iced coffee" },
+    { "image": "img/room.jpg", "caption": "Our terrace" }
+  ],
+  "hours": {
+    "mon": { "closed": false, "open": "07:00", "close": "21:00" },
+    "tue": { "closed": false, "open": "07:00", "close": "21:00" },
+    "wed": { "closed": false, "open": "07:00", "close": "21:00" },
+    "thu": { "closed": false, "open": "07:00", "close": "21:00" },
+    "fri": { "closed": false, "open": "07:00", "close": "22:00" },
+    "sat": { "closed": false, "open": "08:00", "close": "22:00" },
+    "sun": { "closed": true, "open": "08:00", "close": "14:00" },
+    "note": "Closed on Khmer New Year."
+  },
+  "contact": {
+    "phone": "+855 12 345 678",
+    "whatsapp": "+855 12 345 678",
+    "telegram": "@democafe",
+    "email": "hello@example.com",
+    "address": "Street 155, Toul Tom Poung\nPhnom Penh",
+    "mapLink": "https://maps.google.com/?q=Russian+Market+Phnom+Penh"
+  },
+  "social": {
+    "facebook": "https://facebook.com/",
+    "instagram": "",
+    "tiktok": "",
+    "google": ""
+  }
+}

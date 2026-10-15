@@ -3387,6 +3387,7 @@
      Événements onEvent : 'intro' ('start'|'end'), 'neon' (pan) quand une enseigne ATELIER PENH s'allume.
    Survol : api.hover(nx, ny) (NDC, comme pick) -> même objet que pick ({ img, video, title }) ou null ; l'écran visé (vitrine,
      panneau holo, écran du resto) s'éclaire et pulse ; api.hover(null) efface. main.js peut l'appeler à la place de pick au pointermove. */
+var TODAY_L = 'Thursday 15 October', TODAY_S = 'Thu 15 Oct'; try { var _d = new Date(); TODAY_L = _d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }).replace(',', ''); TODAY_S = _d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }).replace(',', ''); } catch (e) { }
 (function () {
   'use strict';
   var T = window.THREE;
@@ -4456,7 +4457,7 @@
         // écran verrouillé : fond dégradé nuit + heure
         var gr = P.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#0d2b3a'); gr.addColorStop(1, '#3a1a2a'); P.fillStyle = gr; P.fillRect(0, 0, W, H);
         P.globalAlpha = k > 0 ? 1 : .35; P.fillStyle = '#fff'; P.textAlign = 'center';
-        P.font = '300 96px ' + FD; P.fillText('20:14', W / 2, 190); P.font = '500 22px ' + PF; P.fillText('Thursday 15 October', W / 2, 228); P.globalAlpha = 1;
+        P.font = '300 96px ' + FD; P.fillText('20:14', W / 2, 190); P.font = '500 22px ' + PF; P.fillText(TODAY_L, W / 2, 228); P.globalAlpha = 1;
         // notification qui descend
         if (n > 0 && chat < 1) {
           var y = -140 + n * 300; P.globalAlpha = 1 - chat; P.fillStyle = 'rgba(245,245,245,.96)'; rrect(P, 16, y, W - 32, 128, 26); P.fill();
@@ -4478,7 +4479,7 @@
           ['Hi! Table for 4', 'tonight at 8 pm?', 'Booked from your website'].forEach(function (l, i) { P.fillText(l, 34, 176 + i * 32); });
           P.fillStyle = '#888'; P.font = '400 15px ' + PF; P.fillText('20:14', 230, 278);
           P.fillStyle = '#fff'; rrect(P, 18, 306, 300, 120, 16); P.fill(); P.fillStyle = '#075E54'; P.font = '700 19px ' + PF; P.fillText('New booking', 34, 340);
-          P.fillStyle = '#333'; P.font = '400 18px ' + PF; P.fillText('Thu 15 Oct · 20:00 · 4 people', 34, 370); P.fillText('via your website ✓', 34, 398);
+          P.fillStyle = '#333'; P.font = '400 18px ' + PF; P.fillText(TODAY_S + ' · 20:00 · 4 people', 34, 370); P.fillText('via your website ✓', 34, 398);
           if (rep > 0) {
             P.globalAlpha = chat * rep; P.fillStyle = '#dcf8c6'; rrect(P, 96, 446, 246, 92, 16); P.fill();
             P.fillStyle = '#111'; P.font = '400 21px ' + PF; P.fillText('Confirmed, see you', 112, 482); P.fillText('tonight!', 112, 512);

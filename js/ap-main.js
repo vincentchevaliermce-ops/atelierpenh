@@ -393,7 +393,7 @@
   var lb = $('#lb'), lbV = $('#lbV'), lbT = $('#lbT');
   function openLb(i) {
     var w = works[i]; if (!w) return;
-    lbV.src = w.v; lbT.textContent = pad(i + 1) + ' · ' + w.t + ' · ' + w.loc;
+    lbV.poster = w.img; lbV.src = w.v; lbT.textContent = pad(i + 1) + ' · ' + w.t + ' · ' + w.loc;
     AP.track('gallery_open', { preview: w.t, n: i + 1 });
     if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
     var pr = lbV.play(); if (pr && pr.catch) pr.catch(function () { });
@@ -401,7 +401,7 @@
   }
   function openVid(v, title) {
     AP.track('video_open', { preview: title || String(v).replace(/^.*\//, '') });
-    lbV.src = window.__R ? window.__R(v.replace(/^img\//, '/img/')) : v; lbT.textContent = title + ' · ' + (AP.lang === 'fr' ? 'maquette Atelier Penh' : 'Atelier Penh preview');
+    var vp = v.replace(/^img\//, '/img/'); lbV.poster = window.__R ? '' : vp.replace(/\.mp4$/, '.jpg'); lbV.src = window.__R ? window.__R(vp) : v; lbT.textContent = title + ' · ' + (AP.lang === 'fr' ? 'maquette Atelier Penh' : 'Atelier Penh preview');
     if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
     var pr = lbV.play(); if (pr && pr.catch) pr.catch(function () { });
     if (lenis) lenis.stop();
@@ -441,8 +441,8 @@
   var cio = new IntersectionObserver(function (es) {
     es.forEach(function (e) {
       if (!e.isIntersecting) return; cio.unobserve(e.target);
-      var el = e.target, raw = el.textContent, m = raw.match(/[\d][\d,  ]*/); if (!m || reduce) return;
-      var num = parseInt(m[0].replace(/[^\d]/g, ''), 10), sep = (m[0].match(/[,  ]/) || [''])[0], t0 = performance.now(), dur = 1300;
+      var el = e.target, raw = el.textContent, m = raw.match(/[\d][\d,\u00a0\u202f ]*/); if (!m || reduce) return;
+      var num = parseInt(m[0].replace(/[^\d]/g, ''), 10), sep = (m[0].match(/[,\u00a0\u202f ](?=\d)/) || [''])[0], t0 = performance.now(), dur = 1300;
       function fmt(v) { var s = String(v); if (sep && v >= 1000) s = s.slice(0, -3) + sep + s.slice(-3); return raw.replace(m[0].trim(), s); }
       (function tick(now) { var k = clamp((now - t0) / dur, 0, 1); k = 1 - Math.pow(1 - k, 3); el.textContent = fmt(Math.round(num * k)); if (k < 1) requestAnimationFrame(tick); else el.textContent = raw; })(t0);
     });

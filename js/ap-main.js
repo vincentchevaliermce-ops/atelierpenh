@@ -11,9 +11,34 @@
   function sstep(a, b, x) { var t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); }
   function secProg(el) { var r = el.getBoundingClientRect(), h = r.height - innerHeight; return h > 0 ? clamp(-r.top / h, 0, 1) : 0; }
   /* ---------- mesure d'audience : AP.track(nom, props) vers Umami, GoatCounter ou Plausible s'ils sont chargés, sinon rien ---------- */
+  /* compteur anonyme (Abacus) : uniquement des compteurs par jour, aucun cookie, aucune donnée personnelle ; tableau de bord = artefact « Visites Atelier Penh » */
+  var APK = { wa_click: 'wa', tg_click: 'tg', email_click: 'mail', module_name_typed: 'name', module_trade: 'trade', gallery_open: 'gal', video_open: 'vid', cta_click: 'cta', lang_switch: 'lang', mode_switch: 'mode', sound_on: 'snd' };
+  var WAS = /^(fab|contact|module|nav|hero|pricing|faq|client|gallery)$/;
+  function apcHit(k) {
+    if (!window.APC || !window.fetch) return;
+    try { if (/^(localhost|127\.|192\.168\.)/.test(location.hostname) || location.protocol === 'file:' || window.__R) return; } catch (_) { }
+    var day = new Date(Date.now() + 7 * 36e5).toISOString().slice(0, 10).replace(/-/g, '');
+    try { fetch('https://abacus.jasoncameron.dev/hit/' + window.APC.ns + '/' + k + '-' + day, { mode: 'no-cors', credentials: 'omit', keepalive: true, cache: 'no-store', referrerPolicy: 'no-referrer' }).catch(function () { }); } catch (_) { }
+  }
+  function apcEvent(name, props) {
+    var k = APK[name]; if (!k) return;
+    if (k === 'wa') k = 'wa-' + (WAS.test(props.source || '') ? props.source : 'other');
+    apcHit(k);
+  }
+  if (window.APC) {
+    apcHit('pv');
+    var seen = false; try { seen = sessionStorage.getItem('ap-v') === '1'; sessionStorage.setItem('ap-v', '1'); } catch (_) { }
+    if (!seen) {
+      var mob = false; try { mob = matchMedia('(pointer: coarse)').matches; } catch (_) { }
+      apcHit('v-' + (AP.lang === 'fr' ? 'fr' : 'en') + '-' + (mob ? 'm' : 'd'));
+      var rf = ''; try { rf = document.referrer ? new URL(document.referrer).hostname : ''; } catch (_) { }
+      apcHit('s-' + (!rf ? 'direct' : /google\./.test(rf) ? 'google' : /(facebook|fb\.|instagram|t\.co$|twitter|x\.com|linkedin|tiktok|whatsapp|telegram)/.test(rf) ? 'social' : /atelierpenh\.com$/.test(rf) ? 'direct' : 'other'));
+    }
+  }
   AP.track = function (name, props) {
     props = props || {}; var tries = 0;
     try { (window.APEvents = window.APEvents || []).push([name, props]); if (window.APEvents.length > 200) window.APEvents.shift(); } catch (_) { }
+    if (window.APC) { apcEvent(name, props); return; }
     (function send() {
       try {
         if (window.umami && typeof window.umami.track === 'function') { window.umami.track(name, props); return; }

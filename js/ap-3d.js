@@ -3618,7 +3618,17 @@ var TODAY_L = 'Thursday 15 October', TODAY_S = 'Thu 15 Oct'; try { var _d = new 
     var REDUCE = opts.reduce != null ? !!opts.reduce : !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     var R2 = mulberry(777001); // hasard propre aux ajouts (ne décale pas la rue générée par R)
     var renderer = new T.WebGLRenderer({ canvas: cv, antialias: !mobile, alpha: false, powerPreference: 'high-performance' });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 1.75));
+    var DPR = Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 1.75);
+    renderer.setPixelRatio(DPR);
+    /* téléphones : si les images/seconde baissent, on réduit la finesse de rendu avant tout (1,5 -> 1,25 -> 1) */
+    var AD = { n: 0, t0: 0, prev: 0 };
+    function adapt(now) {
+      if (!AD.prev || now - AD.prev > 250) { AD.prev = now; AD.n = 0; AD.t0 = now; return; }
+      AD.prev = now; AD.n++;
+      if (now - AD.t0 < 1500) return;
+      var avg = (now - AD.t0) / AD.n; AD.n = 0; AD.t0 = now;
+      if (avg > 24 && DPR > 1) { DPR = Math.max(1, DPR - .25); renderer.setPixelRatio(DPR); resize(); }
+    }
     var HQ = !mobile && opts.hq !== false && !!window.APFX;
     var FX = window.APFX;
     var post = HQ ? FX.post(renderer) : null, mir = HQ ? FX.mirror(renderer, { scale: .5 }) : null;
@@ -4633,6 +4643,7 @@ var TODAY_L = 'Thursday 15 October', TODAY_S = 'Thu 15 Oct'; try { var _d = new 
     var TF = null, lastMix = 0, lastPass = 0, barkAt = 0, nextBark = 12;
     function frame(now) {
       raf = running ? requestAnimationFrame(frame) : 0;
+      if (mobile && TF == null) adapt(now);
       var dt = Math.min((now - last) / 1000, .05); last = now; var t = (now - t0) / 1000; if (TF != null) { dt = t < 0 ? dt : 1 / 30; t = TF; TF += 1 / 30; }
       PS += (P - PS) * Math.min(1, dt * 6);
       sx += (px - sx) * Math.min(1, dt * 3); sy += (py - sy) * Math.min(1, dt * 3);

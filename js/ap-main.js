@@ -587,7 +587,7 @@
     s.addEventListener('error', function () { goLite('net'); });
   }
   function webglOK() { try { var c = d.createElement('canvas'), g = c.getContext('webgl2') || c.getContext('webgl'); if (!g) return false; var dbg = g.getExtension('WEBGL_debug_renderer_info'), r = dbg ? String(g.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : ''; return !/swiftshader|llvmpipe|software|basic render/i.test(r) || /#full/.test(location.hash); } catch (e) { return false; } }
-  function goLite(why) {
+  function goLite(why) { try { console.info('ap-lite:', why); } catch (_) { }
     lite = true; html.classList.add('lite'); lpAll();
     if (streetApi) { streetApi.stop(); streetApi = null; } if (galApi) { galApi.stop(); galApi = null; }
     street.classList.remove('live'); loadPosters(); startSeq(); onScroll(); showModeBtn(9000);
